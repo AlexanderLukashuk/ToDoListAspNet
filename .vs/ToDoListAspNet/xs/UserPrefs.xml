@@ -1,20 +1,21 @@
 ﻿<Properties StartupConfiguration="{2FEB6FC2-A5AC-4C98-831A-3A6647261E17}|https">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ToDoListAspNet/Controllers/ToDoController.cs">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ToDoListAspNet/Services/ToDoService.cs">
     <Files>
-      <File FileName="ToDoListAspNet/Controllers/ToDoController.cs" Line="1" Column="1" />
+      <File FileName="ToDoListAspNet/Controllers/HomeController.cs" Line="25" Column="38" />
+      <File FileName="ToDoListAspNet/Models/ToDo.cs" Line="10" Column="63" />
+      <File FileName="ToDoListAspNet/Services/ToDoService.cs" Line="6" Column="38" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ToDoListAspNet" expanded="True">
             <Node name="ToDoListAspNet" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="ToDoController.cs" selected="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="ToDoService.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -22,6 +23,9 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.ToDoListAspNet FirstBuild="True" PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.ToDoListAspNet PreferredExecutionTarget="/Applications/Google Chrome.app" FirstBuild="True" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

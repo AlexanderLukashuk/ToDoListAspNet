@@ -13,9 +13,17 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
+    //public IActionResult Index()
+    //{
+    //    return View();
+    //}
+
+    [Route("/")]
+    public ActionResult Index()
     {
-        return View();
+        //ToDo starterItem = new ToDo("Add first item to To Do List");
+        ViewBag.ShowControlls = true;
+        return View(starterItem);
     }
 
     public IActionResult Privacy()
