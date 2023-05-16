@@ -1,4 +1,10 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Microsoft.EntityFrameworkCore;
+using ToDoListAspNet.Models.Data;
+
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<ToDoListDBContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ToDoWebsite")
+    ?? throw new InvalidOperationException("Connection string \"ToDoWebsite\" not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
