@@ -10,7 +10,7 @@ namespace ToDoListAspNet.Models.Data
 		{
 		}
 
-		public DbSet<ToDoListAspNet.Models.ToDo> ToDo { get; set; } = default!;
+		public DbSet<ToDoListAspNet.Models.ToDo> ToDos { get; set; } = default!;
 	}
 }
 
