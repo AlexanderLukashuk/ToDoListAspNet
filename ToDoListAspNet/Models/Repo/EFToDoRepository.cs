@@ -3,7 +3,7 @@ using ToDoListAspNet.Models.Data;
 
 namespace ToDoListAspNet.Models.Repo
 {
-	public class EFToDoRepository
+	public class EFToDoRepository : IToDoRepository
 	{
 		private ToDoListDBContext context;
 

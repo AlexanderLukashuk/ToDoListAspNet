@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ToDoListAspNet.Models.Data;
+using ToDoListAspNet.Models.Repo;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ToDoListDBContext>(options =>
@@ -9,7 +10,11 @@ builder.Services.AddDbContext<ToDoListDBContext>(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<IToDoRepository, EFToDoRepository>();
+
 var app = builder.Build();
+
+SeedData.EnsurePopulated(app);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
