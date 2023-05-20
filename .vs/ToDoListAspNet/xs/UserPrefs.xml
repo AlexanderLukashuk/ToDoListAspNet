@@ -1,40 +1,46 @@
 ﻿<Properties StartupConfiguration="{2FEB6FC2-A5AC-4C98-831A-3A6647261E17}|https">
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.ToDoListAspNet PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ToDoListAspNet/Models/Repo/EFToDoRepository.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ToDoListAspNet/Program.cs">
     <Files>
-      <File FileName="ToDoListAspNet/Controllers/HomeController.cs" Line="39" Column="63" />
-      <File FileName="ToDoListAspNet/appsettings.json" />
-      <File FileName="ToDoListAspNet/Program.cs" Line="36" Column="32" />
-      <File FileName="ToDoListAspNet/Models/Data/ToDoListDBContext.cs" Line="6" Column="44" />
-      <File FileName="ToDoListAspNet/Models/Repo/IToDoRepository.cs" Line="4" Column="34" />
-      <File FileName="ToDoListAspNet/Models/Repo/EFToDoRepository.cs" Line="13" Column="4" />
-      <File FileName="ToDoListAspNet/Models/Data/SeedData.cs" />
-      <File FileName="ToDoListAspNet/Models/ToDo.cs" Line="1" Column="1" />
-      <File FileName="ToDoListAspNet/Views/Home/Index.cshtml" />
-      <File FileName="ToDoListAspNet/Views/ToDos/CreateToDo.cshtml" />
-      <File FileName="ToDoListAspNet/Controllers/ToDosController.cs" Line="52" Column="14" />
-      <File FileName="ToDoListAspNet/Migrations/ToDoListDBContextModelSnapshot.cs" Line="1" Column="1" />
-      <File FileName="ToDoListAspNet/Views/ToDos/Index.cshtml" Line="5" Column="24" />
-      <File FileName="ToDoListAspNet/Models/ErrorViewModel.cs" Line="1" Column="1" />
+      <File FileName="ToDoListAspNetLibrary/Models/Data/SeedData.cs" Line="15" Column="1" />
+      <File FileName="ToDoListAspNetLibrary/Class1.cs" Line="1" Column="1" />
+      <File FileName="ToDoListAspNetLibrary/Models/Data/ToDoListDBContext.cs" Line="14" Column="53" />
+      <File FileName="ToDoListAspNetLibrary/Models/Repo/IToDoRepository.cs" Line="10" Column="2" />
+      <File FileName="ToDoListAspNetLibrary/Models/Repo/EFToDoRepository.cs" Line="3" Column="41" />
+      <File FileName="ToDoListAspNetLibrary/Models/Entities/ToDo.cs" Line="2" Column="31" />
+      <File FileName="ToDoListAspNet/Controllers/ToDosController.cs" Line="54" Column="56" />
+      <File FileName="ToDoListAspNet/Controllers/HomeController.cs" Line="6" Column="34" />
+      <File FileName="ToDoListAspNet/Program.cs" Line="11" Column="34" />
+      <File FileName="ToDoListAspNet/Views/ToDos/CreateToDo.cshtml" Line="37" Column="51" />
+      <File FileName="ToDoListAspNet/Views/ToDos/Index.cshtml" Line="14" Column="25" />
+      <File FileName="ToDoListAspNetLibrary/Migrations/20230519110333_Initial.Designer.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ToDoListAspNet" expanded="True">
             <Node name="ToDoListAspNet" expanded="True">
+              <Node name="Dependencies" expanded="True" />
               <Node name="Controllers" expanded="True" />
+              <Node name="Migrations" expanded="True" />
               <Node name="Models" expanded="True">
                 <Node name="Data" expanded="True" />
-                <Node name="Repo" expanded="True">
-                  <Node name="EFToDoRepository.cs" selected="True" />
-                </Node>
               </Node>
               <Node name="Views" expanded="True">
                 <Node name="Home" expanded="True" />
                 <Node name="ToDos" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="ToDoListAspNetLibrary" expanded="True">
+              <Node name="Models" expanded="True">
+                <Node name="Data" expanded="True" />
+                <Node name="Entities" expanded="True" />
+                <Node name="Repo" expanded="True" />
               </Node>
             </Node>
           </Node>

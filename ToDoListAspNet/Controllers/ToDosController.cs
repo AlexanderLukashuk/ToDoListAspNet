@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -27,10 +28,13 @@ namespace ToDoListAspNet.Controllers
 
         private readonly ToDoListDBContext _context;
 
-        public ToDosController(IToDoRepository repository, ToDoListDBContext context)
+        private string connectionString;
+
+        public ToDosController(IToDoRepository repository, ToDoListDBContext context, IConfiguration configuration)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _context = context;
+            connectionString = configuration.GetConnectionString("ToDoWebsite") ?? throw new InvalidOperationException("Connection string \"ToDoWebsite\" not found.");
         }
 
         public IActionResult Index() => View(_repository.ToDos);
