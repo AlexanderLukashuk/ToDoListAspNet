@@ -1,5 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
+using ToDoListAspNetLibrary.Models.Data;
+using ToDoListAspNetLibrary.Models.Entities;
 
 namespace ToDoListAspNet.Models.Data
 {

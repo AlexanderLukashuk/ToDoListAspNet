@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Migrations;
 using ToDoListAspNet.Models;
 using ToDoListAspNet.Models.Data;
-using ToDoListAspNet.Models.Repo;
+using ToDoListAspNetLibrary.Models.Data;
+using ToDoListAspNetLibrary.Models.Repo;
 
 namespace ToDoListAspNet.Controllers;
 

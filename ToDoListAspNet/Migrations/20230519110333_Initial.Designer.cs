@@ -6,12 +6,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ToDoListAspNet.Models.Data;
+//using ToDoListAspNetLibrary.Models.Data;
 
 #nullable disable
 
 namespace ToDoListAspNet.Migrations
 {
-    [DbContext(typeof(ToDoListDBContext))]
+    [DbContext(typeof(ToDoListAspNetLibrary.Models.Data.ToDoListDBContext))]
     [Migration("20230519110333_Initial")]
     partial class Initial
     {

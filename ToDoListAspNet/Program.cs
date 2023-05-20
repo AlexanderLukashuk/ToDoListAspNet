@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ToDoListAspNet.Models.Data;
-using ToDoListAspNet.Models.Repo;
+using ToDoListAspNetLibrary.Models.Data;
+using ToDoListAspNetLibrary.Models.Repo;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ToDoListDBContext>(options =>

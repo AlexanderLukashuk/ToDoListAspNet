@@ -5,12 +5,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ToDoListAspNet.Models.Data;
+//using ToDoListAspNetLibrary.Models.Data;
 
 #nullable disable
 
 namespace ToDoListAspNet.Migrations
 {
-    [DbContext(typeof(ToDoListDBContext))]
+    [DbContext(typeof(ToDoListAspNetLibrary.Models.Data.ToDoListDBContext))]
     partial class ToDoListDBContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

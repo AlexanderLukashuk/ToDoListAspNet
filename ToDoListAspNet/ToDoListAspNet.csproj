@@ -9,14 +9,14 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
-    <None Remove="Models\Data\" />
-    <None Remove="Models\Repo\" />
     <None Remove="Views\ToDos\" />
+    <None Remove="Models\Data\" />
+    <None Remove="Migrations\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Data\" />
-    <Folder Include="Models\Repo\" />
     <Folder Include="Views\ToDos\" />
+    <Folder Include="Models\Data\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
@@ -25,5 +25,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ToDoListAspNetLibrary\ToDoListAspNetLibrary.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>
