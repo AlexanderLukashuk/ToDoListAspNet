@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Migrations;
 using ToDoListAspNet.Models;
+using ToDoListAspNet.Models.Data;
 using ToDoListAspNet.Models.Repo;
 
 namespace ToDoListAspNet.Controllers;
@@ -12,10 +13,13 @@ public class HomeController : Controller
 
     private readonly IToDoRepository _repository;
 
-    public HomeController(ILogger<HomeController> logger, IToDoRepository repository)
+    private readonly ToDoListDBContext _context;
+
+    public HomeController(ILogger<HomeController> logger, IToDoRepository repository, ToDoListDBContext context)
     {
         _logger = logger;
         _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+        _context = context;
     }
 
     //public IActionResult Index()
@@ -32,7 +36,28 @@ public class HomeController : Controller
     //    return View();
     //}
 
-    public IActionResult Index() => View(_repository.ToDos);
+    //public IActionResult Index() => View(_repository.ToDos);
+
+    //[Route("/createToDo")]
+    //public IActionResult CreateToDo()
+    //{
+    //    return View();
+    //}
+
+    ////[HttpPost("/todos/create")]
+    ////[Route("/create")]
+    //[HttpPost]
+    //[ValidateAntiForgeryToken]
+    //public async Task<IActionResult> CreateToDo(ToDo todo)
+    //{
+    //    if (ModelState.IsValid)
+    //    {
+    //        _context.Add(todo);
+    //        await _context.SaveChangesAsync();
+    //        return RedirectToAction(nameof(Index));
+    //    }
+    //    return View(todo);
+    //}
 
     public IActionResult Privacy()
     {
