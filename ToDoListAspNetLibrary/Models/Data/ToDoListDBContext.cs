@@ -1,7 +1,8 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
+using ToDoListAspNetLibrary.Models.Entities;
 
-namespace ToDoListAspNet.Models.Data
+namespace ToDoListAspNetLibrary.Models.Data
 {
 	public class ToDoListDBContext : DbContext
 	{
@@ -10,7 +11,7 @@ namespace ToDoListAspNet.Models.Data
 		{
 		}
 
-		public DbSet<ToDoListAspNet.Models.ToDo> ToDos { get; set; } = default!;
+		public DbSet<ToDo> ToDos { get; set; } = default!;
 	}
 }
 

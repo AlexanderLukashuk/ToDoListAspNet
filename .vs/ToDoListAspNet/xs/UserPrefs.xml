@@ -1,11 +1,24 @@
 ﻿<Properties StartupConfiguration="{2FEB6FC2-A5AC-4C98-831A-3A6647261E17}|https">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ToDoListAspNet/Services/ToDoService.cs">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.ItemProperties.ToDoListAspNet PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ToDoListAspNet/Models/Repo/EFToDoRepository.cs">
     <Files>
-      <File FileName="ToDoListAspNet/Controllers/HomeController.cs" Line="25" Column="38" />
-      <File FileName="ToDoListAspNet/Models/ToDo.cs" Line="10" Column="63" />
-      <File FileName="ToDoListAspNet/Services/ToDoService.cs" Line="6" Column="38" />
+      <File FileName="ToDoListAspNet/Controllers/HomeController.cs" Line="39" Column="63" />
+      <File FileName="ToDoListAspNet/appsettings.json" />
+      <File FileName="ToDoListAspNet/Program.cs" Line="36" Column="32" />
+      <File FileName="ToDoListAspNet/Models/Data/ToDoListDBContext.cs" Line="6" Column="44" />
+      <File FileName="ToDoListAspNet/Models/Repo/IToDoRepository.cs" Line="4" Column="34" />
+      <File FileName="ToDoListAspNet/Models/Repo/EFToDoRepository.cs" Line="13" Column="4" />
+      <File FileName="ToDoListAspNet/Models/Data/SeedData.cs" />
+      <File FileName="ToDoListAspNet/Models/ToDo.cs" Line="1" Column="1" />
+      <File FileName="ToDoListAspNet/Views/Home/Index.cshtml" />
+      <File FileName="ToDoListAspNet/Views/ToDos/CreateToDo.cshtml" />
+      <File FileName="ToDoListAspNet/Controllers/ToDosController.cs" Line="52" Column="14" />
+      <File FileName="ToDoListAspNet/Migrations/ToDoListDBContextModelSnapshot.cs" Line="1" Column="1" />
+      <File FileName="ToDoListAspNet/Views/ToDos/Index.cshtml" Line="5" Column="24" />
+      <File FileName="ToDoListAspNet/Models/ErrorViewModel.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,9 +26,15 @@
           <Node name="ToDoListAspNet" expanded="True">
             <Node name="ToDoListAspNet" expanded="True">
               <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True" />
-              <Node name="Services" expanded="True">
-                <Node name="ToDoService.cs" selected="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Data" expanded="True" />
+                <Node name="Repo" expanded="True">
+                  <Node name="EFToDoRepository.cs" selected="True" />
+                </Node>
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
+                <Node name="ToDos" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -23,9 +42,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.ToDoListAspNet PreferredExecutionTarget="/Applications/Google Chrome.app" FirstBuild="True" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

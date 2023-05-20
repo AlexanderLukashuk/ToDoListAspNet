@@ -1,7 +1,8 @@
 ﻿using System;
-using ToDoListAspNet.Models.Data;
+using ToDoListAspNetLibrary.Models.Data;
+using ToDoListAspNetLibrary.Models.Entities;
 
-namespace ToDoListAspNet.Models.Repo
+namespace ToDoListAspNetLibrary.Models.Repo
 {
 	public class EFToDoRepository : IToDoRepository
 	{

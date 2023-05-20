@@ -1,5 +1,7 @@
 ﻿using System;
-namespace ToDoListAspNet.Models.Repo
+using ToDoListAspNetLibrary.Models.Entities;
+
+namespace ToDoListAspNetLibrary.Models.Repo
 {
 	public interface IToDoRepository
 	{

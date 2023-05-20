@@ -1,5 +1,5 @@
 ﻿using System;
-namespace ToDoListAspNet.Models
+namespace ToDoListAspNetLibrary.Models.Entities
 {
 	public class ToDo
 	{

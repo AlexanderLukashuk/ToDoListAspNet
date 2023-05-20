@@ -1,0 +1,14 @@
+/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNetLibrary/bin/Debug/net7.0/ToDoListAspNetLibrary.deps.json
+/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNetLibrary/bin/Debug/net7.0/ToDoListAspNetLibrary.runtimeconfig.json
+/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNetLibrary/bin/Debug/net7.0/ToDoListAspNetLibrary.dll
+/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNetLibrary/bin/Debug/net7.0/ToDoListAspNetLibrary.pdb
+/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNetLibrary/obj/Debug/net7.0/ToDoListAspNetLibrary.csproj.AssemblyReference.cache
+/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNetLibrary/obj/Debug/net7.0/ToDoListAspNetLibrary.GeneratedMSBuildEditorConfig.editorconfig
+/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNetLibrary/obj/Debug/net7.0/ToDoListAspNetLibrary.AssemblyInfoInputs.cache
+/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNetLibrary/obj/Debug/net7.0/ToDoListAspNetLibrary.AssemblyInfo.cs
+/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNetLibrary/obj/Debug/net7.0/ToDoListAspNetLibrary.csproj.CoreCompileInputs.cache
+/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNetLibrary/obj/Debug/net7.0/ToDoListAspNetLibrary.dll
+/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNetLibrary/obj/Debug/net7.0/refint/ToDoListAspNetLibrary.dll
+/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNetLibrary/obj/Debug/net7.0/ToDoListAspNetLibrary.pdb
+/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNetLibrary/obj/Debug/net7.0/ToDoListAspNetLibrary.genruntimeconfig.cache
+/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNetLibrary/obj/Debug/net7.0/ref/ToDoListAspNetLibrary.dll
