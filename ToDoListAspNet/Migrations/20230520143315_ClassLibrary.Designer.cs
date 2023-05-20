@@ -5,16 +5,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ToDoListAspNet.Models.Data;
-//using ToDoListAspNetLibrary.Models.Data;
+using ToDoListAspNetLibrary.Models.Data;
 
 #nullable disable
 
 namespace ToDoListAspNet.Migrations
 {
-    [DbContext(typeof(ToDoListAspNetLibrary.Models.Data.ToDoListDBContext))]
-    [Migration("20230519110333_Initial")]
-    partial class Initial
+    [DbContext(typeof(ToDoListDBContext))]
+    [Migration("20230520143315_ClassLibrary")]
+    partial class ClassLibrary
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,7 +25,7 @@ namespace ToDoListAspNet.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ToDoListAspNet.Models.ToDo", b =>
+            modelBuilder.Entity("ToDoListAspNetLibrary.Models.Entities.ToDo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

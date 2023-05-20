@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +27,7 @@ namespace ToDoListAspNet.Controllers
 
         private readonly IToDoRepository _repository;
 
-        private readonly ToDoListDBContext _context;
+        private ToDoListDBContext _context;
 
         private string connectionString;
 
@@ -37,6 +38,7 @@ namespace ToDoListAspNet.Controllers
             connectionString = configuration.GetConnectionString("ToDoWebsite") ?? throw new InvalidOperationException("Connection string \"ToDoWebsite\" not found.");
         }
 
+        [Route("/")]
         public IActionResult Index() => View(_repository.ToDos);
 
         [Route("/createToDo")]
@@ -47,17 +49,37 @@ namespace ToDoListAspNet.Controllers
 
         //[HttpPost("/todos/create")]
         //[Route("/create")]
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> CreateToDo(ToDo todo)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        //_context.Add(todo);
+        //        //await _context.SaveChangesAsync();
+
+        //        if (CreateToDoCheck(todo))
+        //        {
+        //            _context.Add(todo);
+        //            await _context.SaveChangesAsync();
+        //            ViewBag.Message = "ToDo details added successfully";
+        //        }
+        //        else
+        //        {
+        //            ViewBag.Message = "Error";
+        //        }
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(todo);
+        //}
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateToDo(ToDo todo)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(todo);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(todo);
+            _context.ToDos.Add(todo);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

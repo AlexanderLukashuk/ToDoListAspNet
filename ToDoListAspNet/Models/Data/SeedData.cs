@@ -47,6 +47,13 @@ namespace ToDoListAspNet.Models.Data
                         Description = "Give your playing field a professional touch",
                         DeadLine = DateTime.Now,
                         ToDoStatus = "not started"
+                    },
+                    new ToDo
+                    {
+                        Name = "New ToDo",
+                        Description = "Test",
+                        DeadLine = DateTime.Now,
+                        ToDoStatus = "not started"
                     }
                     //new Product
                     //{

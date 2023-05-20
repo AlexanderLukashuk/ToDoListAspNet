@@ -11,12 +11,10 @@
   <ItemGroup>
     <None Remove="Views\ToDos\" />
     <None Remove="Models\Data\" />
-    <None Remove="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\ToDos\" />
     <Folder Include="Models\Data\" />
-    <Folder Include="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />

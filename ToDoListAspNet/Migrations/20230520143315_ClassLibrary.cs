@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ToDoListAspNet.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class ClassLibrary : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

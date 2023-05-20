@@ -6,7 +6,8 @@ using ToDoListAspNetLibrary.Models.Repo;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ToDoListDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ToDoWebsite")
-    ?? throw new InvalidOperationException("Connection string \"ToDoWebsite\" not found.")));
+    ?? throw new InvalidOperationException("Connection string \"ToDoWebsite\" not found."),
+    optionsBuilder => optionsBuilder.MigrationsAssembly("ToDoListAspNet")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
