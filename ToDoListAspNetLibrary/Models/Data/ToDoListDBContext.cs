@@ -11,7 +11,7 @@ namespace ToDoListAspNetLibrary.Models.Data
 		{
 		}
 
-		public DbSet<ToDo> ToDos { get; set; } = default!;
+		public DbSet<ToDo> ToDos { get; set; }
 	}
 }
 

@@ -19,12 +19,6 @@ namespace ToDoListAspNet.Controllers
 {
     public class ToDosController : Controller
     {
-        // GET: /<controller>/
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-
         private readonly IToDoRepository _repository;
 
         private ToDoListDBContext _context;
@@ -41,46 +35,100 @@ namespace ToDoListAspNet.Controllers
         [Route("/")]
         public IActionResult Index() => View(_repository.ToDos);
 
-        [Route("/createToDo")]
+        //[Route("/createToDo")]
         public IActionResult CreateToDo()
         {
             return View();
         }
 
-        //[HttpPost("/todos/create")]
-        //[Route("/create")]
         //[HttpPost]
         //[ValidateAntiForgeryToken]
         //public async Task<IActionResult> CreateToDo(ToDo todo)
         //{
         //    if (ModelState.IsValid)
         //    {
-        //        //_context.Add(todo);
-        //        //await _context.SaveChangesAsync();
-
-        //        if (CreateToDoCheck(todo))
-        //        {
-        //            _context.Add(todo);
-        //            await _context.SaveChangesAsync();
-        //            ViewBag.Message = "ToDo details added successfully";
-        //        }
-        //        else
-        //        {
-        //            ViewBag.Message = "Error";
-        //        }
+        //        _context.ToDos.Add(todo);
+        //        await _context.SaveChangesAsync();
         //        return RedirectToAction(nameof(Index));
         //    }
         //    return View(todo);
         //}
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateToDo(ToDo todo)
+        public ActionResult CreateToDo(ToDo todo)
         {
-            _context.ToDos.Add(todo);
-            await _context.SaveChangesAsync();
+            //using (SqlConnection connection = new SqlConnection(connectionString))
+            //{
+            //    connection.Open();
+            //    using (var command = connection.CreateCommand())
+            //    {
+            //        //string deadline = todo.DeadLine.ToString("yyyy-mm-dd hh:mm");
+            //        command.CommandText = $"INSERT INTO ToDos (Name, Description, DeadLine, ToDoStatus) VALUES ('{todo.Name}', '{todo.Description}', '{todo.DeadLine:yyyy-mm-dd hh:mm}', '{todo.ToDoStatus}')";
+            //        try
+            //        {
+            //            command.ExecuteNonQuery();
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            Console.WriteLine(ex.Message);
+            //        }
+            //        connection.Close();
+            //    }
+            //}
+
+            try
+            {
+                var connection = new SqlConnection(connectionString);
+
+                //using (var connection = new SqlConnection(connectionString))
+                using (connection)
+                {
+                    try
+                    {
+                        connection.Open();
+
+                        string query =
+                            "INSERT INTO ToDos (Name, Description, DeadLine, ToDoStatus)" +
+                            "VALUES (@name, @descr, CAST(@deadLine AS DateTime), @status);";
+
+                        using (var command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@name", todo.Name);
+                            command.Parameters.AddWithValue("@descr", todo.Description);
+                            command.Parameters.AddWithValue("@deadLine", todo.DeadLine);
+                            command.Parameters.AddWithValue("@status", todo.ToDoStatus);
+                            //command.Parameters.AddWithValue("@deadLine", todo.DeadLine.ToString("yyyy-MM-dd HH:mm:ss"));
+
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        Console.WriteLine("ERROR: Can't connect to server" + ex.Message);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("ERROR: Something went wrong" + ex.Message);
+            }
             return RedirectToAction(nameof(Index));
         }
+
+        //[HttpPost]
+        //public async Task<IActionResult> CreateToDo(ToDo todo)
+        //{
+        //    if (!ModelState.IsValid)
+        //        return View(todo);
+
+        //    _context.ToDos.Add(todo);
+        //    await _context.SaveChangesAsync();
+        //    return RedirectToAction(nameof(Index));
+        //}
     }
 }
 
