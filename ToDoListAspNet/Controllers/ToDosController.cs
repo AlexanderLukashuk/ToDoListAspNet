@@ -12,6 +12,7 @@ using ToDoListAspNetLibrary;
 using ToDoListAspNetLibrary.Models.Data;
 using ToDoListAspNetLibrary.Models.Entities;
 using ToDoListAspNetLibrary.Models.Repo;
+using ToDoListAspNetLibrary.Services;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -24,6 +25,8 @@ namespace ToDoListAspNet.Controllers
         private ToDoListDBContext _context;
 
         private string connectionString;
+
+        private ToDoService todoService = new ToDoService();
 
         public ToDosController(IToDoRepository repository, ToDoListDBContext context, IConfiguration configuration)
         {
@@ -76,7 +79,7 @@ namespace ToDoListAspNet.Controllers
             //    }
             //}
 
-            
+            todoService.Create(todo, connectionString);
             return RedirectToAction(nameof(Index));
         }
 
