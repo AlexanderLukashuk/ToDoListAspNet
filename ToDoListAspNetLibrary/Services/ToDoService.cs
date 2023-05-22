@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Configuration;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using ToDoListAspNetLibrary.Models.Entities;
 
@@ -6,12 +8,21 @@ namespace ToDoListAspNetLibrary.Services
 {
 	public class ToDoService
 	{
+        private string connectionString;
+
+        private SqlConnection connection;
+
+        public ToDoService(string conStr)
+        {
+            connectionString = conStr;
+            connection = new SqlConnection(connectionString);
+        }
+
 		public void Create(ToDo todo, string connectionString)
 		{
             try
             {
-                //using (var connection = new SqlConnection(connectionString))
-                using (var connection = new SqlConnection(connectionString))
+                using (connection)
                 {
                     try
                     {
@@ -50,7 +61,7 @@ namespace ToDoListAspNetLibrary.Services
 
         public void Update(int id, ToDo todo, string connectionString)
         {
-            using (var connection = new SqlConnection(connectionString))
+            using (connection)
             {
                 try
                 {
