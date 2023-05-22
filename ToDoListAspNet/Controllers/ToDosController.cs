@@ -93,6 +93,19 @@ namespace ToDoListAspNet.Controllers
         //    await _context.SaveChangesAsync();
         //    return RedirectToAction(nameof(Index));
         //}
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
+        {
+            ToDo? todo = _context.ToDos.Find(id);
+            if (todo != null)
+            {
+                _context.ToDos.Remove(todo);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
 

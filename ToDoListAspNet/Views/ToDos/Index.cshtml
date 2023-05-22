@@ -82,23 +82,27 @@
     <div class="search-box">
         <input type="text" class="form-control" placeholder="Search">
     </div>
-    <form asp-action="Index">
-        @foreach (var p in Model)
+    @*<form asp-action="Index">*@
+        @foreach (var todo in Model)
         {
                 <ul>
                     <li class="list-group-item todo-item">
                         <div>
-                            <h3>@p.Name</h3>
-                            @p.Description
-                            <h4>@p.DeadLine</h4>
-                            <h4>@p.ToDoStatus</h4>
+                            <h3>@todo.Name</h3>
+                            @todo.Description
+                            <h4>@todo.DeadLine</h4>
+                            <h4>@todo.ToDoStatus</h4>
                         </div>
                         <button class="btn btn-primary">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
+                        <form asp-action="Delete" method="post" class="delete-form">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@todo.Id" />
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
                     </li>
                 </ul>
         }
-    </form>
+    @*</form>*@
 
     <form action="/ToDos/CreateToDo" method="get">
 
