@@ -47,6 +47,39 @@ namespace ToDoListAspNetLibrary.Services
                 Console.WriteLine("ERROR: Something went wrong" + ex.Message);
             }
         }
+
+        public void Update(int id, ToDo todo, string connectionString)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = "UPDATE ToDos SET Name = @name, Description = @descr, " +
+                    "DeadLine = @deadLine " +
+                    "WHERE Id = @id";
+
+                    using (var command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@name", todo.Name);
+                        command.Parameters.AddWithValue("@descr", todo.Description);
+                        command.Parameters.AddWithValue("@deadLine", todo.DeadLine);
+                        command.Parameters.AddWithValue("@id", id);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    Console.WriteLine("ERROR: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
 	}
 }
 

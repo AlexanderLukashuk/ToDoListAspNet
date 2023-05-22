@@ -125,35 +125,7 @@ namespace ToDoListAspNet.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (var connection = new SqlConnection(connectionString))
-                {
-                    try
-                    {
-                        connection.Open();
-
-                        string query = "UPDATE ToDos SET Name = @name, Description = @descr, " +
-                        "DeadLine = @deadLine " +
-                        "WHERE Id = @id";
-
-                        using (var command = new SqlCommand(query, connection))
-                        {
-                            command.Parameters.AddWithValue("@name", todo.Name);
-                            command.Parameters.AddWithValue("@descr", todo.Description);
-                            command.Parameters.AddWithValue("@deadLine", todo.DeadLine);
-                            command.Parameters.AddWithValue("@id", todo.Id);
-
-                            command.ExecuteNonQuery();
-                        }
-                    }
-                    catch (SqlException ex)
-                    {
-                        Console.WriteLine("ERROR: " + ex.Message);
-                    }
-                    finally
-                    {
-                        connection.Close();
-                    }
-                }
+                todoService.Update(id, todo, connectionString);
                 return RedirectToAction(nameof(Index));
             }
             return View(todo);
