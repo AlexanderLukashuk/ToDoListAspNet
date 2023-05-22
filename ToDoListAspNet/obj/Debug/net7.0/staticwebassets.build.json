@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OhjqWxkfcka5x6eMU0Unv8Af8uvJNAKX+lxOnv/AbUk=",
+  "Hash": "ubjM48W+eC7lAzk6HXZF6q3ttJkKuJMG7oPZDADWPo0=",
   "Source": "ToDoListAspNet",
   "BasePath": "_content/ToDoListAspNet",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/site.css"
+    },
+    {
+      "Identity": "/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNet/wwwroot/css/ToDoMainPage.css",
+      "SourceId": "ToDoListAspNet",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNet/wwwroot/",
+      "BasePath": "_content/ToDoListAspNet",
+      "RelativePath": "css/ToDoMainPage.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/ToDoMainPage.css"
     },
     {
       "Identity": "/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNet/wwwroot/favicon.ico",

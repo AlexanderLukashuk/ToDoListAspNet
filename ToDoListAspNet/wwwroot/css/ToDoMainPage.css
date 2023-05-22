@@ -1,27 +1,4 @@
-﻿html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-}
-
-/*body {
+﻿body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
     background: url('https://gitlab.com/anusanbsk/slidone/raw/master/img/wallpaper.jpg') center no-repeat #000000;
@@ -66,10 +43,10 @@ button {
 strong {
     color: #6f6f6f;
     font-size: 0.9rem;
-}*/
+}
 
 /* ANIMATIONS */
-/*@-webkit-keyframes fadeIn {
+@-webkit-keyframes fadeIn {
     0% {
         opacity: 0;
     }
@@ -107,10 +84,10 @@ strong {
     100% {
         opacity: 1;
     }
-}*/
+}
 
 /* APP */
-/*.todo {
+.todo {
     position: absolute;
     top: 50%;
     -webkit-transform: translateY(-50%);
@@ -238,12 +215,12 @@ strong {
     -moz-transition-duration: 250ms;
     -o-transition-duration: 250ms;
     transition-duration: 250ms;
-}*/
+}
 
 /* MOBILE */
-/*@media screen and (max-width: 750px) {*/
+@media screen and (max-width: 750px) {
     /* APP */
-    /*.todo {
+    .todo {
         padding: 10px;
     }
 
@@ -254,179 +231,4 @@ strong {
     .todo__name {
         font-size: 0.9rem;
     }
-}*/
-
-
-/*.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.search-box {
-    margin-bottom: 20px;
-}
-
-.todo-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.todo-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-    .todo-item input[type="text"] {
-        flex-grow: 1;
-        margin-right: 10px;
-    }
-
-    .todo-item button {
-        margin-left: 10px;
-    }
-
-.create-todo-btn {
-    margin-top: 20px;
-}*/
-
-
-/*------------------------------*/
-
-
-/*
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    color: #555;
-    text-align: center;
-}
-
-.search-box {
-    margin-bottom: 20px;
-}
-
-    .search-box input[type="text"] {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-
-.todo-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.todo-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-    .todo-item input[type="text"] {
-        flex-grow: 1;
-        padding: 8px;
-        font-size: 14px;
-        border: none;
-        background-color: transparent;
-    }
-
-    .todo-item button {
-        padding: 8px 12px;
-        font-size: 14px;
-        color: #fff;
-        background-color: #555;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-        .todo-item button:hover {
-            background-color: #333;
-        }
-
-.create-todo-btn {
-    margin-top: 20px;
-    padding: 10px 16px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-    .create-todo-btn:hover {
-        background-color: #0056b3;
-    }*/
-
-
-body {
-    background-color: #f4f4f4;
-}
-
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    color: #555;
-    text-align: center;
-}
-
-.search-box {
-    margin-bottom: 20px;
-}
-
-.todo-list {
-    padding: 0;
-}
-
-.todo-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-}
-
-    .todo-item input[type="text"] {
-        flex-grow: 1;
-        padding: 8px;
-        font-size: 14px;
-        border: none;
-        background-color: transparent;
-    }
-
-.create-todo-btn {
-    margin-top: 20px;
 }

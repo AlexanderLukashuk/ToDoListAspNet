@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/ToDoListAspNet.bundle.scp.css"
     },
     {
+      "Id": "/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNet/wwwroot/css/ToDoMainPage.css",
+      "PackagePath": "staticwebassets/css/ToDoMainPage.css"
+    },
+    {
       "Id": "/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNet/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },

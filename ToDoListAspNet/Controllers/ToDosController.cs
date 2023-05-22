@@ -35,7 +35,7 @@ namespace ToDoListAspNet.Controllers
             connectionString = configuration.GetConnectionString("ToDoWebsite") ?? throw new InvalidOperationException("Connection string \"ToDoWebsite\" not found.");
         }
 
-        [Route("/")]
+        [Route("/ToDos")]
         public IActionResult Index() => View(_repository.ToDos);
 
         //[Route("/createToDo")]
