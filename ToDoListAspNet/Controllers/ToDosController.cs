@@ -106,6 +106,63 @@ namespace ToDoListAspNet.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public ActionResult Edit(int id)
+        {
+            var todo = _context.ToDos.Find(id);
+
+            if (todo == null)
+            {
+                return NotFound();
+            }
+
+            return View(todo);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, ToDo todo)
+        {
+            if (ModelState.IsValid)
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+
+                        string query = "UPDATE ToDos SET Name = @name, Description = @descr, " +
+                        "DeadLine = @deadLine " +
+                        "WHERE Id = @id";
+
+                        using (var command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@name", todo.Name);
+                            command.Parameters.AddWithValue("@descr", todo.Description);
+                            command.Parameters.AddWithValue("@deadLine", todo.DeadLine);
+                            command.Parameters.AddWithValue("@id", todo.Id);
+
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        Console.WriteLine("ERROR: " + ex.Message);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(todo);
+        }
+
+        private bool ToDoExists(int id)
+        {
+            return (_context.ToDos?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
     }
 }
 

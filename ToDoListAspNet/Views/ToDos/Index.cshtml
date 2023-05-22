@@ -93,7 +93,12 @@
                             <h4>@todo.DeadLine</h4>
                             <h4>@todo.ToDoStatus</h4>
                         </div>
-                        <button class="btn btn-primary">Edit</button>
+                        @*<button class="btn btn-primary">Edit</button>*@
+                        <form action="/ToDos/Edit" method="get" class="edit-form">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@todo.Id" />
+                            <button type="submit" class="btn btn-primary">Edit</button>
+                        </form>
                         <form asp-action="Delete" method="post" class="delete-form">
                             @Html.AntiForgeryToken()
                             <input type="hidden" name="id" value="@todo.Id" />
