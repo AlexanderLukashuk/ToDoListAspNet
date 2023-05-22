@@ -18,7 +18,7 @@ namespace ToDoListAspNetLibrary.Services
             connection = new SqlConnection(connectionString);
         }
 
-		public void Create(ToDo todo, string connectionString)
+		public void Create(ToDo todo)
 		{
             try
             {
@@ -59,7 +59,7 @@ namespace ToDoListAspNetLibrary.Services
             }
         }
 
-        public void Update(int id, ToDo todo, string connectionString)
+        public void Update(int id, ToDo todo)
         {
             using (connection)
             {
