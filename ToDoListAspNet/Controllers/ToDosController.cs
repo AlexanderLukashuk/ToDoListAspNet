@@ -26,13 +26,14 @@ namespace ToDoListAspNet.Controllers
 
         private string connectionString;
 
-        private ToDoService todoService = new ToDoService();
+        private ToDoService todoService;
 
         public ToDosController(IToDoRepository repository, ToDoListDBContext context, IConfiguration configuration)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _context = context;
             connectionString = configuration.GetConnectionString("ToDoWebsite") ?? throw new InvalidOperationException("Connection string \"ToDoWebsite\" not found.");
+            todoService = new ToDoService(connectionString);
         }
 
         [Route("/ToDos")]
