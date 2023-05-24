@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using ToDoListAspNetLibrary.Models.Data;
 using ToDoListAspNetLibrary.Models.Entities;
+using static ToDoListAspNetLibrary.Models.Entities.ToDo;
 
 namespace ToDoListAspNetLibrary.Services
 {
@@ -100,6 +101,16 @@ namespace ToDoListAspNetLibrary.Services
             if (todo != null)
             {
                 context.ToDos.Remove(todo);
+                context.SaveChanges();
+            }
+        }
+
+        public void StartToDo(int id, ToDoListDBContext context)
+        {
+            var todo = context.ToDos.Find(id);
+            if (todo != null)
+            {
+                todo.Status = ToDoStatus.InProgress;
                 context.SaveChanges();
             }
         }

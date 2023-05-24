@@ -130,14 +130,9 @@ namespace ToDoListAspNet.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> StartToDo(int id)
+        public ActionResult StartToDo(int id)
         {
-            var todo = await _context.ToDos.FindAsync(id);
-            if (todo != null)
-            {
-                todo.Status = ToDoStatus.InProgress;
-                await _context.SaveChangesAsync();
-            }
+            todoService.StartToDo(id, _context);
             return RedirectToAction(nameof(Index));
         }
 
