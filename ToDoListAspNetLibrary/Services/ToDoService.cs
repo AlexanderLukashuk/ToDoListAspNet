@@ -2,6 +2,8 @@
 using System.Configuration;
 using System.Data.Entity;
 using System.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using ToDoListAspNetLibrary.Models.Data;
 using ToDoListAspNetLibrary.Models.Entities;
 
 namespace ToDoListAspNetLibrary.Services
@@ -29,7 +31,7 @@ namespace ToDoListAspNetLibrary.Services
                         connection.Open();
 
                         string query =
-                            "INSERT INTO ToDos (Name, Description, DeadLine, ToDoStatus)" +
+                            "INSERT INTO ToDos (Name, Description, DeadLine, Status)" +
                             "VALUES (@name, @descr, CAST(@deadLine AS DateTime), @status);";
 
                         using (var command = new SqlCommand(query, connection))
@@ -89,6 +91,16 @@ namespace ToDoListAspNetLibrary.Services
                 {
                     connection.Close();
                 }
+            }
+        }
+
+        public void Delete(int id, ToDoListDBContext context)
+        {
+            ToDo? todo = context.ToDos.Find(id);
+            if (todo != null)
+            {
+                context.ToDos.Remove(todo);
+                context.SaveChanges();
             }
         }
 	}
