@@ -114,6 +114,16 @@ namespace ToDoListAspNetLibrary.Services
                 context.SaveChanges();
             }
         }
+
+        public void FinishToDo(int id, ToDoListDBContext context)
+        {
+            var todo = context.ToDos.Find(id);
+            if (todo != null)
+            {
+                todo.Status = ToDoStatus.Completed;
+                context.SaveChanges();
+            }
+        }
 	}
 }
 
