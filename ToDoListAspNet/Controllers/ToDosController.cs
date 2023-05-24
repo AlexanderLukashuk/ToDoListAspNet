@@ -13,6 +13,7 @@ using ToDoListAspNetLibrary.Models.Data;
 using ToDoListAspNetLibrary.Models.Entities;
 using ToDoListAspNetLibrary.Models.Repo;
 using ToDoListAspNetLibrary.Services;
+using static ToDoListAspNetLibrary.Models.Entities.ToDo;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -130,6 +131,32 @@ namespace ToDoListAspNet.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(todo);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> StartToDo(int id)
+        {
+            var todo = await _context.ToDos.FindAsync(id);
+            if (todo != null)
+            {
+                todo.Status = ToDoStatus.InProgress;
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> FinishToDo(int id)
+        {
+            var todo = await _context.ToDos.FindAsync(id);
+            if (todo != null)
+            {
+                todo.Status = ToDoStatus.Completed;
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         private bool ToDoExists(int id)
