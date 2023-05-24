@@ -80,7 +80,7 @@ namespace ToDoListAspNet.Controllers
             //    }
             //}
 
-            todoService.Create(todo, connectionString);
+            todoService.Create(todo);
             return RedirectToAction(nameof(Index));
         }
 
@@ -126,7 +126,7 @@ namespace ToDoListAspNet.Controllers
         {
             if (ModelState.IsValid)
             {
-                todoService.Update(id, todo, connectionString);
+                todoService.Update(id, todo);
                 return RedirectToAction(nameof(Index));
             }
             return View(todo);

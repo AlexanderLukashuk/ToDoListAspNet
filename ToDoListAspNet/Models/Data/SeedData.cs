@@ -25,35 +25,35 @@ namespace ToDoListAspNet.Models.Data
                         Name = "Kayak",
                         Description = "A boat for one person",
                         DeadLine = DateTime.Now,
-                        ToDoStatus = "not started"
+                        Status = ToDo.ToDoStatus.NotStarted
                     },
                     new ToDo
                     {
                         Name = "Lifejacket",
                         Description = "Protective and fashionable",
                         DeadLine = DateTime.Now,
-                        ToDoStatus = "not started"
+                        Status = ToDo.ToDoStatus.NotStarted
                     },
                     new ToDo
                     {
                         Name = "Soccer Ball",
                         Description = "FIFA-approved size and weight",
                         DeadLine = DateTime.Now,
-                        ToDoStatus = "not started"
+                        Status = ToDo.ToDoStatus.NotStarted
                     },
                     new ToDo
                     {
                         Name = "Corner Flags",
                         Description = "Give your playing field a professional touch",
                         DeadLine = DateTime.Now,
-                        ToDoStatus = "not started"
+                        Status = ToDo.ToDoStatus.NotStarted
                     },
                     new ToDo
                     {
                         Name = "New ToDo",
                         Description = "Test",
                         DeadLine = DateTime.Now,
-                        ToDoStatus = "not started"
+                        Status = ToDo.ToDoStatus.NotStarted
                     }
                     //new Product
                     //{

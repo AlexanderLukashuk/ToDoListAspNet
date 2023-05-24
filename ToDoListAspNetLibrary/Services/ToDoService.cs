@@ -37,7 +37,7 @@ namespace ToDoListAspNetLibrary.Services
                             command.Parameters.AddWithValue("@name", todo.Name);
                             command.Parameters.AddWithValue("@descr", todo.Description);
                             command.Parameters.AddWithValue("@deadLine", todo.DeadLine);
-                            command.Parameters.AddWithValue("@status", todo.ToDoStatus);
+                            command.Parameters.AddWithValue("@status", ToDo.ToDoStatus.NotStarted);
                             //command.Parameters.AddWithValue("@deadLine", todo.DeadLine.ToString("yyyy-MM-dd HH:mm:ss"));
 
                             command.ExecuteNonQuery();
