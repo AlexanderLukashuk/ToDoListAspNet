@@ -88,10 +88,11 @@
                 <ul>
                     <li class="list-group-item todo-item">
                         <div>
-                            <h3>@todo.Name</h3>
-                            @todo.Description
-                            <h4>@todo.DeadLine</h4>
-                            <h4>@todo.Status</h4>
+                            <form action="/ToDos/Edit" method="get" class="edit-form">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@todo.Id" />
+                                <h3>@Html.ActionLink(todo.Name, "Details", new { id = todo.Id })</h3>
+                            </form>
                         </div>
                         @*<button class="btn btn-primary">Edit</button>*@
                         <form action="/ToDos/Edit" method="get" class="edit-form">

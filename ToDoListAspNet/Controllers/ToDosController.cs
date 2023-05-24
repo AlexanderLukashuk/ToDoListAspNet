@@ -144,6 +144,22 @@ namespace ToDoListAspNet.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var todo = _context.ToDos.FirstOrDefault(t => t.Id == id);
+            if (todo == null)
+            {
+                return NotFound();
+            }
+
+            return View(todo);
+        }
+
         private bool ToDoExists(int id)
         {
             return (_context.ToDos?.Any(e => e.Id == id)).GetValueOrDefault();
