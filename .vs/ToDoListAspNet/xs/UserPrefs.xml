@@ -1,28 +1,17 @@
 ﻿<Properties StartupConfiguration="{2FEB6FC2-A5AC-4C98-831A-3A6647261E17}|https">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.ToDoListAspNet PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ToDoListAspNet/Views/ToDos/CreateToDo.cshtml">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ToDoListAspNet/Views/ToDos/Index.cshtml">
     <Files>
-      <File FileName="ToDoListAspNetLibrary/Class1.cs" />
-      <File FileName="ToDoListAspNetLibrary/Models/Data/ToDoListDBContext.cs" />
-      <File FileName="ToDoListAspNetLibrary/Models/Repo/IToDoRepository.cs" />
-      <File FileName="ToDoListAspNetLibrary/Models/Repo/EFToDoRepository.cs" />
-      <File FileName="ToDoListAspNetLibrary/Models/Entities/ToDo.cs" Line="6" Column="9" />
-      <File FileName="ToDoListAspNet/Controllers/ToDosController.cs" Line="129" Column="46" />
-      <File FileName="ToDoListAspNet/Program.cs" />
-      <File FileName="ToDoListAspNet/Views/ToDos/CreateToDo.cshtml" Line="167" Column="58" />
-      <File FileName="ToDoListAspNet/Views/ToDos/Edit.cshtml" />
-      <File FileName="ToDoListAspNet/Views/ToDos/Index.cshtml" Line="94" Column="45" />
-      <File FileName="ToDoListAspNet/appsettings.json" />
-      <File FileName="ToDoListAspNet/Controllers/HomeController.cs" />
-      <File FileName="ToDoListAspNet/Models/Data/SeedData.cs" Line="56" Column="60" />
-      <File FileName="ToDoListAspNet/Views/Home/Index.cshtml" Line="17" Column="15" />
-      <File FileName="ToDoListAspNet/Views/Shared/_Layout.cshtml" />
-      <File FileName="ToDoListAspNetLibrary/Services/ToDoService.cs" Line="40" Column="72" />
-      <File FileName="ToDoListAspNet/wwwroot/css/site.css" />
-      <File FileName="ToDoListAspNet/wwwroot/css/ToDoMainPage.css" />
+      <File FileName="ToDoListAspNetLibrary/Models/Entities/ToDo.cs" />
+      <File FileName="ToDoListAspNet/Controllers/ToDosController.cs" Line="161" Column="10" />
+      <File FileName="ToDoListAspNet/Program.cs" Line="1" Column="1" />
+      <File FileName="ToDoListAspNet/Views/ToDos/CreateToDo.cshtml" Line="176" Column="76" />
+      <File FileName="ToDoListAspNet/Views/ToDos/Edit.cshtml" Line="1" Column="1" />
+      <File FileName="ToDoListAspNet/Views/ToDos/Index.cshtml" Line="93" Column="83" />
+      <File FileName="ToDoListAspNetLibrary/Services/ToDoService.cs" Line="117" Column="1" />
+      <File FileName="ToDoListAspNet/wwwroot/css/site.css" Line="1" Column="1" />
+      <File FileName="ToDoListAspNet/Views/ToDos/Details.cshtml" Line="19" Column="43" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -60,7 +49,9 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.ToDoListAspNet PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>
