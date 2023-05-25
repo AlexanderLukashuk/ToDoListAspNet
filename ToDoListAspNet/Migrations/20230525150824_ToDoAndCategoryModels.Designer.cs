@@ -12,8 +12,8 @@ using ToDoListAspNetLibrary.Models.Data;
 namespace ToDoListAspNet.Migrations
 {
     [DbContext(typeof(ToDoListDBContext))]
-    [Migration("20230525144817_CategoryModel")]
-    partial class CategoryModel
+    [Migration("20230525150824_ToDoAndCategoryModels")]
+    partial class ToDoAndCategoryModels
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

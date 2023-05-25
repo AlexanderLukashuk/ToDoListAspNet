@@ -15,6 +15,8 @@ namespace ToDoListAspNetLibrary.Models.Entities
         public string? Description { get; set; }
         public DateTime? DeadLine { get; set; }
         public ToDoStatus Status { get; set; }
+        public int CategoryId { get; set; }
+        public Category? Category { get; set; }
     }
 }
 

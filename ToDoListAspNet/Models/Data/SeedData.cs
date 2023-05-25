@@ -9,89 +9,89 @@ namespace ToDoListAspNet.Models.Data
 	{
         public static void EnsurePopulated(IApplicationBuilder app)
         {
-            ToDoListDBContext context = app.ApplicationServices
-                .CreateScope().ServiceProvider.GetRequiredService<ToDoListDBContext>();
+            //ToDoListDBContext context = app.ApplicationServices
+            //    .CreateScope().ServiceProvider.GetRequiredService<ToDoListDBContext>();
 
-            if (context.Database.GetPendingMigrations().Any())
+            //if (context.Database.GetPendingMigrations().Any())
+            //{
+            //    context.Database.Migrate();
+            //}
+
+            //if (!context.ToDos.Any())
+            //{
+            //    context.ToDos.AddRange(
+            //        new ToDo
+            //        {
+            //            Name = "Kayak",
+            //            Description = "A boat for one person",
+            //            DeadLine = DateTime.Now,
+            //            Status = ToDo.ToDoStatus.NotStarted,
+            //            CategoryId = 1
+            //        },
+            //        new ToDo
+            //        {
+            //            Name = "Lifejacket",
+            //            Description = "Protective and fashionable",
+            //            DeadLine = DateTime.Now,
+            //            Status = ToDo.ToDoStatus.NotStarted,
+            //            CategoryId = 1
+            //        },
+            //        new ToDo
+            //        {
+            //            Name = "Soccer Ball",
+            //            Description = "FIFA-approved size and weight",
+            //            DeadLine = DateTime.Now,
+            //            Status = ToDo.ToDoStatus.NotStarted,
+            //            CategoryId = 1
+            //        },
+            //        new ToDo
+            //        {
+            //            Name = "Corner Flags",
+            //            Description = "Give your playing field a professional touch",
+            //            DeadLine = DateTime.Now,
+            //            Status = ToDo.ToDoStatus.NotStarted,
+            //            CategoryId = 1
+            //        },
+            //        new ToDo
+            //        {
+            //            Name = "New ToDo",
+            //            Description = "Test",
+            //            DeadLine = DateTime.Now,
+            //            Status = ToDo.ToDoStatus.NotStarted,
+            //            CategoryId = 1
+            //        }
+            //    );
+            //    context.SaveChanges();
+            //}
+
+            CategoryDBContext catContext = app.ApplicationServices
+                .CreateScope().ServiceProvider.GetRequiredService<CategoryDBContext>();
+
+            if (catContext.Database.GetPendingMigrations().Any())
             {
-                context.Database.Migrate();
+                catContext.Database.Migrate();
             }
 
-            if (!context.ToDos.Any())
+            if (!catContext.Categories.Any())
             {
-                context.ToDos.AddRange(
-                    new ToDo
+                catContext.Categories.AddRange(
+                    new Category
                     {
-                        Name = "Kayak",
-                        Description = "A boat for one person",
-                        DeadLine = DateTime.Now,
-                        Status = ToDo.ToDoStatus.NotStarted
+                        Name = "Today",
+                        Progress = 0
                     },
-                    new ToDo
+                    new Category
                     {
-                        Name = "Lifejacket",
-                        Description = "Protective and fashionable",
-                        DeadLine = DateTime.Now,
-                        Status = ToDo.ToDoStatus.NotStarted
+                        Name = "Planned",
+                        Progress = 0
                     },
-                    new ToDo
+                    new Category
                     {
-                        Name = "Soccer Ball",
-                        Description = "FIFA-approved size and weight",
-                        DeadLine = DateTime.Now,
-                        Status = ToDo.ToDoStatus.NotStarted
-                    },
-                    new ToDo
-                    {
-                        Name = "Corner Flags",
-                        Description = "Give your playing field a professional touch",
-                        DeadLine = DateTime.Now,
-                        Status = ToDo.ToDoStatus.NotStarted
-                    },
-                    new ToDo
-                    {
-                        Name = "New ToDo",
-                        Description = "Test",
-                        DeadLine = DateTime.Now,
-                        Status = ToDo.ToDoStatus.NotStarted
+                        Name = "Personal",
+                        Progress = 0
                     }
-                    //new Product
-                    //{
-                    //    Name = "Stadium",
-                    //    Description = "Flat-packed 35,000-seat stadium",
-                    //    Category = "Soccer",
-                    //    Price = 79500
-                    //},
-                    //new Product
-                    //{
-                    //    Name = "Thinking Cap",
-                    //    Description = "Improve brain efficiency by 75%",
-                    //    Category = "Chess",
-                    //    Price = 16
-                    //},
-                    //new Product
-                    //{
-                    //    Name = "Unsteady Chair",
-                    //    Description = "Secretly give your opponent a disadvantage",
-                    //    Category = "Chess",
-                    //    Price = 29.95m
-                    //},
-                    //new Product
-                    //{
-                    //    Name = "Human Chess Board",
-                    //    Description = "A fun game for the family",
-                    //    Category = "Chess",
-                    //    Price = 75
-                    //},
-                    //new Product
-                    //{
-                    //    Name = "Bling-Bling King",
-                    //    Description = "Gold-plated, diamond-studded King",
-                    //    Category = "Chess",
-                    //    Price = 1200
-                    //}
                 );
-                context.SaveChanges();
+                catContext.SaveChanges();
             }
         }
     }

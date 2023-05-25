@@ -2,20 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ToDoListAspNetLibrary.Models.Data;
 
 #nullable disable
 
-namespace ToDoListAspNet.Migrations
+namespace ToDoListAspNet.Migrations.CategoryDB
 {
-    [DbContext(typeof(ToDoListDBContext))]
-    [Migration("20230520152017_WithoutDeadline")]
-    partial class WithoutDeadline
+    [DbContext(typeof(CategoryDBContext))]
+    partial class CategoryDBContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,7 +21,7 @@ namespace ToDoListAspNet.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ToDoListAspNetLibrary.Models.Entities.ToDo", b =>
+            modelBuilder.Entity("ToDoListAspNetLibrary.Models.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -32,21 +29,15 @@ namespace ToDoListAspNet.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ToDoStatus")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Progress")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("ToDos");
+                    b.ToTable("Categories");
                 });
 #pragma warning restore 612, 618
         }

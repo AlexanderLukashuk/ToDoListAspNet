@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ToDoListAspNet.Migrations
 {
     /// <inheritdoc />
-    public partial class CategoryModel : Migration
+    public partial class ToDoAndCategoryModels : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -9,10 +9,16 @@ builder.Services.AddDbContext<ToDoListDBContext>(options =>
     ?? throw new InvalidOperationException("Connection string \"ToDoWebsite\" not found."),
     optionsBuilder => optionsBuilder.MigrationsAssembly("ToDoListAspNet")));
 
+builder.Services.AddDbContext<CategoryDBContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ToDoWebsite")
+    ?? throw new InvalidOperationException("Connection string \"ToDoWebsite\" not found."),
+    optionsBuilder => optionsBuilder.MigrationsAssembly("ToDoListAspNet")));
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IToDoRepository, EFToDoRepository>();
+builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();
 
 var app = builder.Build();
 
