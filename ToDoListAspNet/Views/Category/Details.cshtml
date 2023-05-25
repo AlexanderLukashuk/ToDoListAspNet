@@ -1,0 +1,29 @@
+﻿@model ToDoListAspNetLibrary.Models.Entities.Category
+
+<div class="container">
+    <h1>@Model.Name</h1>
+
+    <div class="button-group">
+        <form action="/Category/Edit" method="get" class="edit-form">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@Model.Id" />
+            <button type="submit" class="btn btn-primary">Edit</button>
+        </form>
+        <form action="/Category/Delete" method="post" class="delete-form">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@Model.Id" />
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+        <h4>Todos:</h4>
+        <ul>
+            @foreach (var todo in ViewData["Todos"] as List<ToDoListAspNetLibrary.Models.Entities.ToDo>)
+            {
+                <li>@todo.Name</li>
+            }
+        </ul>
+    </div>
+
+    <form action="/Category" method="get">
+        <button class="btn btn-primary">Return to the main page</button>
+    </form>
+</div>

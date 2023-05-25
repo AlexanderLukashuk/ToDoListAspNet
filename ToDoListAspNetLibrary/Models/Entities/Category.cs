@@ -6,6 +6,6 @@ namespace ToDoListAspNetLibrary.Models.Entities
 		public int Id { get; set; }
 		public string? Name { get; set; }
 		public int Progress { get; set; }
-	}
+    }
 }
 
