@@ -21,7 +21,7 @@ namespace ToDoListAspNetLibrary.Services
             connection = new SqlConnection(connectionString);
         }
 
-		public void Create(ToDo todo)
+		public void Create(ToDo todo, int categoryId)
 		{
             try
             {
@@ -32,8 +32,8 @@ namespace ToDoListAspNetLibrary.Services
                         connection.Open();
 
                         string query =
-                            "INSERT INTO ToDos (Name, Description, DeadLine, Status)" +
-                            "VALUES (@name, @descr, CAST(@deadLine AS DateTime), @status);";
+                            "INSERT INTO ToDos (Name, Description, DeadLine, Status, CategoryId)" +
+                            "VALUES (@name, @descr, CAST(@deadLine AS DateTime), @status, @categoryId);";
 
                         using (var command = new SqlCommand(query, connection))
                         {
@@ -43,6 +43,7 @@ namespace ToDoListAspNetLibrary.Services
                             //command.Parameters.AddWithValue("@deadLine", todo.DeadLine);
                             command.Parameters.AddWithValue("@deadLine", todo.DeadLine.HasValue ? (object)todo.DeadLine : DateTime.MaxValue);
                             command.Parameters.AddWithValue("@status", ToDo.ToDoStatus.NotStarted);
+                            command.Parameters.AddWithValue("@categoryId", categoryId);
                             //command.Parameters.AddWithValue("@deadLine", todo.DeadLine.ToString("yyyy-MM-dd HH:mm:ss"));
 
                             command.ExecuteNonQuery();

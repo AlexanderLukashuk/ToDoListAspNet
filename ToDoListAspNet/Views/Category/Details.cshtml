@@ -32,6 +32,11 @@
         </ul>
     </div>
 
+    <form action="/ToDos/Create" method="get">
+        <input type="hidden" name="categoryId" value="@Model.Id" />
+        <button type="submit" class="btn btn-success">Create New ToDo</button>
+    </form>
+
     <form action="/Category" method="get">
         <button class="btn btn-primary">Return to the main page</button>
     </form>

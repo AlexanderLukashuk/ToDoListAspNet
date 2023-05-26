@@ -1,28 +1,28 @@
 ﻿<Properties StartupConfiguration="{2FEB6FC2-A5AC-4C98-831A-3A6647261E17}|https">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.ToDoListAspNet PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ToDoListAspNet/Controllers/CategoryController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ToDoListAspNet/Views/Category/Details.cshtml">
     <Files>
       <File FileName="ToDoListAspNetLibrary/Models/Entities/ToDo.cs" />
-      <File FileName="ToDoListAspNet/Controllers/ToDosController.cs" />
-      <File FileName="ToDoListAspNet/Controllers/CategoryController.cs" Line="134" Column="14" />
-      <File FileName="ToDoListAspNet/Views/Category/Index.cshtml" />
-      <File FileName="ToDoListAspNet/Program.cs" />
-      <File FileName="ToDoListAspNet/Views/ToDos/CreateToDo.cshtml" />
+      <File FileName="ToDoListAspNet/Controllers/ToDosController.cs" Line="87" Column="53" />
+      <File FileName="ToDoListAspNet/Controllers/CategoryController.cs" Line="49" Column="14" />
+      <File FileName="ToDoListAspNet/Views/Category/Index.cshtml" Line="56" Column="78" />
+      <File FileName="ToDoListAspNet/Program.cs" Line="1" Column="1" />
+      <File FileName="ToDoListAspNet/Views/ToDos/CreateToDo.cshtml" Line="194" Column="8" />
       <File FileName="ToDoListAspNet/Views/ToDos/Edit.cshtml" />
-      <File FileName="ToDoListAspNet/Views/ToDos/Index.cshtml" />
-      <File FileName="ToDoListAspNetLibrary/Services/ToDoService.cs" />
+      <File FileName="ToDoListAspNet/Views/ToDos/Index.cshtml" Line="134" Column="12" />
+      <File FileName="ToDoListAspNetLibrary/Services/ToDoService.cs" Line="66" Column="10" />
       <File FileName="ToDoListAspNet/wwwroot/css/site.css" />
-      <File FileName="ToDoListAspNet/Views/ToDos/Details.cshtml" />
+      <File FileName="ToDoListAspNet/Views/ToDos/Details.cshtml" Line="44" Column="28" />
       <File FileName="ToDoListAspNetLibrary/Models/Entities/Category.cs" />
-      <File FileName="ToDoListAspNet/Views/Category/Details.cshtml" />
+      <File FileName="ToDoListAspNet/Views/Category/Details.cshtml" Line="35" Column="47" />
       <File FileName="ToDoListAspNet/Models/Data/SeedData.cs" />
       <File FileName="ToDoListAspNetLibrary/Models/Repo/ICategoryRepository.cs" />
       <File FileName="ToDoListAspNetLibrary/Models/Repo/IToDoRepository.cs" />
       <File FileName="ToDoListAspNet/Views/Category/Create.cshtml" />
+      <File FileName="ToDoListAspNet/Views/Category/Edit.cshtml" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -30,9 +30,7 @@
           <Node name="ToDoListAspNet" expanded="True">
             <Node name="ToDoListAspNet" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Controllers" expanded="True">
-                <Node name="CategoryController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Migrations" expanded="True">
                 <Node name="CategoryDB" expanded="True" />
               </Node>
@@ -40,7 +38,9 @@
                 <Node name="Data" expanded="True" />
               </Node>
               <Node name="Views" expanded="True">
-                <Node name="Category" expanded="True" />
+                <Node name="Category" expanded="True">
+                  <Node name="Details.cshtml" selected="True" />
+                </Node>
                 <Node name="ToDos" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True">
@@ -61,6 +61,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.ToDoListAspNet PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>

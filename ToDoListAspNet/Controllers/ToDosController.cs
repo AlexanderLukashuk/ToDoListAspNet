@@ -23,18 +23,21 @@ namespace ToDoListAspNet.Controllers
     {
         private readonly IToDoRepository _repository;
 
+        private CategoryDBContext _categoryContex;
+
         private ToDoListDBContext _context;
 
         private string connectionString;
 
         private ToDoService todoService;
 
-        public ToDosController(IToDoRepository repository, ToDoListDBContext context, IConfiguration configuration)
+        public ToDosController(IToDoRepository repository, ToDoListDBContext context, IConfiguration configuration, CategoryDBContext categoryContext)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _context = context;
             connectionString = configuration.GetConnectionString("ToDoWebsite") ?? throw new InvalidOperationException("Connection string \"ToDoWebsite\" not found.");
             todoService = new ToDoService(connectionString);
+            _categoryContex = categoryContext;
         }
 
         [Route("/ToDos")]
@@ -81,7 +84,7 @@ namespace ToDoListAspNet.Controllers
             //    }
             //}
 
-            todoService.Create(todo);
+            todoService.Create(todo, todo.CategoryId);
             return RedirectToAction(nameof(Index));
         }
 
