@@ -18,7 +18,16 @@
         <ul>
             @foreach (var todo in ViewData["Todos"] as List<ToDoListAspNetLibrary.Models.Entities.ToDo>)
             {
-                <li>@todo.Name</li>
+                <li>
+                    <div class="todo-name">
+                        <form action="/ToDos/Details" method="get" class="details-form">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@todo.Id" />
+                            @*<h3>@Html.ActionLink(todo.Name, "Details", new { id = todo.Id })</h3>*@
+                            <h3><a href="/ToDos/Details?id=@todo.Id">@todo.Name</a></h3>
+                        </form>
+                    </div>
+                </li>
             }
         </ul>
     </div>

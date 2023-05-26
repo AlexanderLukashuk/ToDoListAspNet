@@ -2,21 +2,22 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="ToDoListAspNet/Models/Data/SeedData.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ToDoListAspNet/Controllers/CategoryController.cs">
     <Files>
-      <File FileName="ToDoListAspNetLibrary/Models/Entities/ToDo.cs" Line="17" Column="47" />
-      <File FileName="ToDoListAspNet/Controllers/ToDosController.cs" Line="161" Column="10" />
-      <File FileName="ToDoListAspNet/Program.cs" Line="38" Column="27" />
-      <File FileName="ToDoListAspNet/Views/ToDos/CreateToDo.cshtml" Line="184" Column="16" />
+      <File FileName="ToDoListAspNetLibrary/Models/Entities/ToDo.cs" Line="18" Column="44" />
+      <File FileName="ToDoListAspNet/Controllers/ToDosController.cs" Line="24" Column="54" />
+      <File FileName="ToDoListAspNet/Controllers/CategoryController.cs" Line="47" Column="25" />
+      <File FileName="ToDoListAspNet/Views/Category/Index.cshtml" Line="52" Column="6" />
+      <File FileName="ToDoListAspNet/Program.cs" Line="12" Column="34" />
+      <File FileName="ToDoListAspNet/Views/ToDos/CreateToDo.cshtml" />
       <File FileName="ToDoListAspNet/Views/ToDos/Edit.cshtml" />
-      <File FileName="ToDoListAspNet/Views/ToDos/Index.cshtml" Line="135" Column="7" />
+      <File FileName="ToDoListAspNet/Views/ToDos/Index.cshtml" Line="134" Column="12" />
       <File FileName="ToDoListAspNetLibrary/Services/ToDoService.cs" />
       <File FileName="ToDoListAspNet/wwwroot/css/site.css" />
-      <File FileName="ToDoListAspNet/Views/ToDos/Details.cshtml" />
-      <File FileName="ToDoListAspNet/Models/Data/SeedData.cs" Line="92" Column="9" />
-      <File FileName="ToDoListAspNetLibrary/Models/Entities/Category.cs" Line="8" Column="36" />
-      <File FileName="ToDoListAspNet/Controllers/CategoryController.cs" Line="13" Column="24" />
-      <File FileName="ToDoListAspNet/Views/Category/Index.cshtml" Line="8" Column="23" />
+      <File FileName="ToDoListAspNet/Views/ToDos/Details.cshtml" Line="7" Column="23" />
+      <File FileName="ToDoListAspNetLibrary/Models/Entities/Category.cs" Line="11" Column="1" />
+      <File FileName="ToDoListAspNet/Views/Category/Details.cshtml" Line="19" Column="105" />
+      <File FileName="ToDoListAspNet/Models/Data/SeedData.cs" Line="81" Column="37" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -25,11 +26,11 @@
             <Node name="ToDoListAspNet" expanded="True">
               <Node name="Dependencies" expanded="True" />
               <Node name="Controllers" expanded="True" />
-              <Node name="Migrations" expanded="True" />
+              <Node name="Migrations" expanded="True">
+                <Node name="CategoryDB" expanded="True" />
+              </Node>
               <Node name="Models" expanded="True">
-                <Node name="Data" expanded="True">
-                  <Node name="SeedData.cs" selected="True" />
-                </Node>
+                <Node name="Data" expanded="True" />
               </Node>
               <Node name="Views" expanded="True">
                 <Node name="Category" expanded="True" />
@@ -53,8 +54,8 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.ToDoListAspNet PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.ToDoListAspNet PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>
