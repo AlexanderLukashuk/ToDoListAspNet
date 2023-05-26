@@ -149,6 +149,57 @@ namespace ToDoListAspNet.Controllers
 
             return RedirectToAction(nameof(Index)); // Redirect to the main page
         }
+
+        public IActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var category = _context.Categories.FirstOrDefault(c => c.Id == id);
+
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            return View(category);
+        }
+
+        // POST: Category/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id, Category category)
+        {
+            if (id != category.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                //_categoryRepository.Update(category);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "UPDATE Categories SET Name = @Name WHERE Id = @Id";
+
+                    using (var command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Name", category.Name);
+                        command.Parameters.AddWithValue("@Id", category.Id);
+
+                        command.ExecuteNonQuery();
+                    }
+                    
+                }
+                return RedirectToAction(nameof(Index)); // Redirect to the desired page after editing the category
+            }
+
+            return View(category);
+        }
     }
 }
 

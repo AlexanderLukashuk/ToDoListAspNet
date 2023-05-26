@@ -12,7 +12,7 @@
         <ul>
             <li class="list-group-item todo-item">
                 <div class="todo-name">
-                    <form action="/ToDos/Details" method="get" class="details-form">
+                    <form action="/Category/Details" method="get" class="details-form">
                         @Html.AntiForgeryToken()
                         <input type="hidden" name="id" value="@category.Id" />
                         <h3>@Html.ActionLink(category.Name, "Details", new { id = category.Id })</h3>
@@ -20,7 +20,7 @@
                 </div>
                 @*<button class="btn btn-primary">Edit</button>*@
                 <div class="list-group-item-btn">
-                    <form action="/ToDos/Edit" method="get" class="edit-form">
+                    <form action="/Category/Edit" method="get" class="edit-form">
                         @Html.AntiForgeryToken()
                         <input type="hidden" name="id" value="@category.Id" />
                         <button type="submit" class="btn btn-primary">Edit</button>
