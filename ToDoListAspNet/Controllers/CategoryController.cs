@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using ToDoListAspNetLibrary.Models.Data;
 using ToDoListAspNetLibrary.Models.Entities;
 using ToDoListAspNetLibrary.Models.Repo;
+using ToDoListAspNetLibrary.Services;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -24,12 +26,18 @@ namespace ToDoListAspNet.Controllers
 
         private string connectionString;
 
-        public CategoryController (ICategoryRepository repository, IToDoRepository toDoRepository, CategoryDBContext context, IConfiguration configuration)
+        private ToDoService todoService;
+
+        private ToDoListDBContext _todoContext;
+
+        public CategoryController (ICategoryRepository repository, IToDoRepository toDoRepository, CategoryDBContext context, IConfiguration configuration, ToDoListDBContext todoContext)
         {
             _repository = repository;
             _context = context;
             _toDoRepository = toDoRepository;
             connectionString = configuration.GetConnectionString("ToDoWebsite") ?? throw new InvalidOperationException("Connection string \"ToDoWebsite\" not found.");
+            todoService = new ToDoService(connectionString);
+            _todoContext = todoContext;
         }
 
         [Route("/Category")]
@@ -105,6 +113,41 @@ namespace ToDoListAspNet.Controllers
             }
 
             return View(category);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            Category? category = _context.Categories.Find(id);
+            if (category != null)
+            {
+                var todos = todoService.GetByCategoryId(category.Id);
+                //var todos = _toDoRepository.GetByCategoryId(category.Id);
+                foreach (var todo in todos)
+                {
+                    todoService.Delete(todo.Id, _todoContext);
+                }
+
+                _context.Categories.Remove(category);
+                _context.SaveChanges();
+            }
+
+            //var category = _repository.GetById(id);
+
+            //if (category == null)
+            //{
+            //    return NotFound();
+            //}
+
+            // Delete associated todos
+            
+
+            // Delete the category
+            //_categoryRepository.Delete(id);
+            //_categoryRepository.Save();
+
+            return RedirectToAction(nameof(Index)); // Redirect to the main page
         }
     }
 }

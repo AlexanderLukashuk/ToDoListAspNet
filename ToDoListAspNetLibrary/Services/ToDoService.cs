@@ -126,6 +126,40 @@ namespace ToDoListAspNetLibrary.Services
                 context.SaveChanges();
             }
         }
-	}
+
+        public IEnumerable<ToDo> GetByCategoryId(int categoryId)
+        {
+            var todos = new List<ToDo>();
+
+            using (connection)
+            {
+                connection.Open();
+
+                var query = "SELECT Id, Name, Description, DeadLine, Status, CategoryId FROM ToDos WHERE CategoryId = @CategoryId";
+                var command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@CategoryId", categoryId);
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var todo = new ToDo
+                        {
+                            Id = reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            Description = reader.GetString(2),
+                            DeadLine = reader.GetDateTime(3),
+                            Status = (ToDo.ToDoStatus)reader.GetInt32(4),
+                            CategoryId = reader.GetInt32(5)
+                        };
+
+                        todos.Add(todo);
+                    }
+                }
+            }
+
+            return todos;
+        }
+    }
 }
 
