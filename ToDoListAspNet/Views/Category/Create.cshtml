@@ -1,0 +1,22 @@
+﻿@model ToDoListAspNetLibrary.Models.Entities.Category
+
+<div class="container">
+    <h1>Create New Category</h1>
+
+    <form action="/Category/Create" method="post" class="create-form">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label for="name">Category Name:</label>
+            <input type="text" id="name" name="name" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+
+    <div class="button-group">
+        <form action="/Category" method="get">
+            <button class="btn btn-primary">Return to the main page</button>
+        </form>
+    </div>
+</div>

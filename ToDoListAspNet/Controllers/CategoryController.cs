@@ -100,7 +100,8 @@ namespace ToDoListAspNet.Controllers
                 {
                     Console.WriteLine("ERROR: Something went wrong" + ex.Message);
                 }
-                return RedirectToAction("Index", "Todos"); // Redirect to the main page
+                //return RedirectToAction("Index", "Todos"); // Redirect to the main page
+                return RedirectToAction(nameof(Index));
             }
 
             return View(category);
