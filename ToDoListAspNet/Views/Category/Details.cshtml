@@ -32,10 +32,16 @@
         </ul>
     </div>
 
-    <form action="/ToDos/Create" method="get">
-        <input type="hidden" name="categoryId" value="@Model.Id" />
-        <button type="submit" class="btn btn-success">Create New ToDo</button>
-    </form>
+    @*<form action="/ToDos/Create" method="get">
+            <input type="hidden" name="categoryId" value="@Model.Id" />
+            <button type="submit" class="btn btn-success">Create New ToDo</button>
+        </form>*@
+    @*<a href="/ToDos/Create?categoryId=@Model.Id"></a>*@
+    @*<input type="hidden" name="categoryId" value="@Model.Id" />
+        <button type="submit" class="btn btn-success">Create new ToDo</button>*@
+    @*</a>*@
+
+    <a href="/ToDos/CreateToDo?categoryId=@Model.Id">Create New ToDo</a>
 
     <form action="/Category" method="get">
         <button class="btn btn-primary">Return to the main page</button>

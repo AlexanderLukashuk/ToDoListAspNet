@@ -63,7 +63,7 @@ namespace ToDoListAspNet.Controllers
         //}
 
         [HttpPost]
-        public ActionResult CreateToDo(ToDo todo)
+        public ActionResult CreateToDo(ToDo todo, int categoryId)
         {
             //using (SqlConnection connection = new SqlConnection(connectionString))
             //{
@@ -84,7 +84,7 @@ namespace ToDoListAspNet.Controllers
             //    }
             //}
 
-            todoService.Create(todo, todo.CategoryId);
+            todoService.Create(todo, categoryId);
             return RedirectToAction(nameof(Index));
         }
 
