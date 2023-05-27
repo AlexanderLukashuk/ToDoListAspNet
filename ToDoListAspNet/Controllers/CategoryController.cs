@@ -28,6 +28,8 @@ namespace ToDoListAspNet.Controllers
 
         private ToDoService todoService;
 
+        private CategoryService categoryService;
+
         private ToDoListDBContext _todoContext;
 
         public CategoryController (ICategoryRepository repository, IToDoRepository toDoRepository, CategoryDBContext context, IConfiguration configuration, ToDoListDBContext todoContext)
@@ -38,6 +40,7 @@ namespace ToDoListAspNet.Controllers
             connectionString = configuration.GetConnectionString("ToDoWebsite") ?? throw new InvalidOperationException("Connection string \"ToDoWebsite\" not found.");
             todoService = new ToDoService(connectionString);
             _todoContext = todoContext;
+            categoryService = new CategoryService(connectionString);
         }
 
         [Route("/Category")]
@@ -74,40 +77,7 @@ namespace ToDoListAspNet.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
-                {
-                    using (var connection = new SqlConnection(connectionString))
-                    {
-                        try
-                        {
-                            connection.Open();
-
-                            string query =
-                                "INSERT INTO Categories (Name, Progress)" +
-                            "VALUES (@name, @progress);";
-
-                            using (var command = new SqlCommand(query, connection))
-                            {
-                                command.Parameters.AddWithValue("@name", category.Name);
-                                command.Parameters.AddWithValue("@progress", 0);
-
-                                command.ExecuteNonQuery();
-                            }
-                        }
-                        catch (SqlException ex)
-                        {
-                            Console.WriteLine("ERROR: Can't connect to server" + ex.Message);
-                        }
-                        finally
-                        {
-                            connection.Close();
-                        }
-                    }
-                }
-                catch (SqlException ex)
-                {
-                    Console.WriteLine("ERROR: Something went wrong" + ex.Message);
-                }
+                categoryService.Create(category);
                 //return RedirectToAction("Index", "Todos"); // Redirect to the main page
                 return RedirectToAction(nameof(Index));
             }
@@ -119,35 +89,8 @@ namespace ToDoListAspNet.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
-            Category? category = _context.Categories.Find(id);
-            if (category != null)
-            {
-                var todos = todoService.GetByCategoryId(category.Id);
-                //var todos = _toDoRepository.GetByCategoryId(category.Id);
-                foreach (var todo in todos)
-                {
-                    todoService.Delete(todo.Id, _todoContext);
-                }
-
-                _context.Categories.Remove(category);
-                _context.SaveChanges();
-            }
-
-            //var category = _repository.GetById(id);
-
-            //if (category == null)
-            //{
-            //    return NotFound();
-            //}
-
-            // Delete associated todos
-            
-
-            // Delete the category
-            //_categoryRepository.Delete(id);
-            //_categoryRepository.Save();
-
-            return RedirectToAction(nameof(Index)); // Redirect to the main page
+            categoryService.Delete(id, _context, todoService, _todoContext);
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Edit(int? id)
@@ -180,21 +123,7 @@ namespace ToDoListAspNet.Controllers
             if (ModelState.IsValid)
             {
                 //_categoryRepository.Update(category);
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    string query = "UPDATE Categories SET Name = @Name WHERE Id = @Id";
-
-                    using (var command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@Name", category.Name);
-                        command.Parameters.AddWithValue("@Id", category.Id);
-
-                        command.ExecuteNonQuery();
-                    }
-                    
-                }
+                categoryService.Update(id, category);
                 return RedirectToAction(nameof(Index)); // Redirect to the desired page after editing the category
             }
 
