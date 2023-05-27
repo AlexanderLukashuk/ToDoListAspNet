@@ -122,9 +122,8 @@ namespace ToDoListAspNet.Controllers
 
             if (ModelState.IsValid)
             {
-                //_categoryRepository.Update(category);
                 categoryService.Update(id, category);
-                return RedirectToAction(nameof(Index)); // Redirect to the desired page after editing the category
+                return RedirectToAction(nameof(Index));
             }
 
             return View(category);

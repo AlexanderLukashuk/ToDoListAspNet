@@ -15,29 +15,19 @@
             <button type="submit" class="btn btn-danger">Delete</button>
         </form>
         <h4>Todos:</h4>
-        <ul>
-            @foreach (var todo in ViewData["Todos"] as List<ToDoListAspNetLibrary.Models.Entities.ToDo>)
+        @*<ul>*@
+        @foreach (var todo in ViewData["Todos"] as List<ToDoListAspNetLibrary.Models.Entities.ToDo>)
             {
-                <li>
-                    <div class="todo-name">
-                        <form action="/ToDos/Details" method="get" class="details-form">
-                            @Html.AntiForgeryToken()
-                            <input type="hidden" name="id" value="@todo.Id" />
-                            @*<h3>@Html.ActionLink(todo.Name, "Details", new { id = todo.Id })</h3>*@
-                            <h3><a href="/ToDos/Details?id=@todo.Id">@todo.Name</a></h3>
-                        </form>
-                    </div>
-                    <div class="list-group-item-btn">
-                        <form action="/ToDos/Edit" method="get" class="edit-form">
-                            @Html.AntiForgeryToken()
-                            <input type="hidden" name="id" value="@todo.Id" />
-                            <button type="submit" class="btn btn-primary">Edit</button>
-                        </form>
-                        <form asp-action="Delete" method="post" class="delete-form">
-                            @Html.AntiForgeryToken()
-                            <input type="hidden" name="id" value="@todo.Id" />
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
+                <ul>
+                    <li class="list-group-item todo-item">
+                        <div class="todo-name">
+                            <form action="/ToDos/Details" method="get" class="details-form">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@todo.Id" />
+                                @*<h3>@Html.ActionLink(todo.Name, "Details", new { id = todo.Id })</h3>*@
+                                <h3><a href="/ToDos/Details?id=@todo.Id">@todo.Name</a></h3>
+                            </form>
+                        </div>
                         @if (todo.Status == ToDoListAspNetLibrary.Models.Entities.ToDo.ToDoStatus.NotStarted)
                         {
                             <form action="/ToDos/StartToDo" method="post" class="start-form">
@@ -54,10 +44,23 @@
                                 <button type="submit" class="btn btn-warning">Finish</button>
                             </form>
                         }
-                    </div>
-                </li>
+                        <div class="list-group-item-btn">
+                            <form action="/ToDos/Edit" method="get" class="edit-form">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@todo.Id" />
+                                <button type="submit" class="btn btn-primary">Edit</button>
+                            </form>
+                            <form asp-action="Delete" method="post" class="delete-form">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@todo.Id" />
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+
+                        </div>
+                    </li>
+                </ul>
             }
-        </ul>
+        @*</ul>*@
     </div>
 
     @*<form action="/ToDos/Create" method="get">
