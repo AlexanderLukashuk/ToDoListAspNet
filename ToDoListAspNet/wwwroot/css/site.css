@@ -51,7 +51,7 @@ body {
 
 .list-group-item-btn {
     display: flex;
-    gap: 10px;
+    gap: 25%;
 }
 
 .list-group-item-btn form {
@@ -59,7 +59,7 @@ body {
 }
 
 .todo-name {
-    width: 75%;
+    width: 65%;
 }
 
 .container {
@@ -93,6 +93,29 @@ h1 {
 
 .create-todo-btn {
     margin-top: 20px;
+}
+
+button {
+    width: 160%;
+}
+
+/*.btn-warning {
+    width: 145% !important;
+}*/
+
+#finish {
+    width: 60px;
+}
+
+#invisible {
+    /*    background: transparent;
+    border: none !important;
+    font-size: 0;*/
+    visibility: hidden;
+}
+
+.invisible-form {
+    width: 160%;
 }
 
 /*body {
