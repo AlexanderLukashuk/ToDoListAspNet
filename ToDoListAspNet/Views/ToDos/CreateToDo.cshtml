@@ -167,9 +167,9 @@
             <input asp-for="Name" class="form-control" />
             <span asp-validation-for="Name" class="text-danger"></span>
             @*@if (ViewData.ModelState.ContainsKey("Name") && ViewData.ModelState["Name"].Errors.Any(e => e.ErrorMessage == "The Name field is required."))
-            {
-                <span class="text-danger">The name should not be empty.</span>
-            }*@
+                {
+                    <span class="text-danger">The name should not be empty.</span>
+                }*@
 
             <label asp-for="Description" class="form-label"></label>
             <input asp-for="Description" class="form-control" />
@@ -179,12 +179,14 @@
             <input asp-for="DeadLine" class="form-control" />
             <span asp-validation-for="DeadLine" class="text-danger"></span>
             @*@if (ViewData.ModelState.ContainsKey("DeadLine") && ViewData.ModelState["DeadLine"].Errors.Any(e => e.ErrorMessage == "The DeadLine field is required."))
-            {
-                <span class="text-danger">The Deadline should not be empty.</span>
-            }*@
+                {
+                    <span class="text-danger">The Deadline should not be empty.</span>
+                }*@
 
         </div>
     </div>
+
+    <input type="hidden" name="CategoryId" value="@ViewBag.CategoryId" />
     <div class="row justify-content-center">
         <div class="col-xl-6 col-lg-8 col-md-8 col-sm-10 mt-3 mb-5">
             <input type="submit" id="form-button" class="btn btn-success" value="Add Todo" />

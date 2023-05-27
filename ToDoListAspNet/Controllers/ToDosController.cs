@@ -44,9 +44,26 @@ namespace ToDoListAspNet.Controllers
         public IActionResult Index() => View(_repository.ToDos);
 
         //[Route("/createToDo")]
-        public IActionResult CreateToDo()
+        //public IActionResult CreateToDo()
+        //{
+        //    return View();
+        //}
+
+        [HttpGet]
+        public IActionResult CreateToDo(int categoryId)
         {
-            return View();
+            var category = _categoryContex.Categories.FirstOrDefault(c => c.Id == categoryId);
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            var todo = new ToDo();
+            todo.CategoryId = categoryId;
+
+            ViewBag.CategoryId = categoryId; // Pass the categoryId to the view
+
+            return View(todo);
         }
 
         //[HttpPost]
@@ -63,7 +80,7 @@ namespace ToDoListAspNet.Controllers
         //}
 
         [HttpPost]
-        public ActionResult CreateToDo(ToDo todo, int categoryId)
+        public ActionResult CreateToDo(ToDo todo)
         {
             //using (SqlConnection connection = new SqlConnection(connectionString))
             //{
@@ -84,8 +101,16 @@ namespace ToDoListAspNet.Controllers
             //    }
             //}
 
-            todoService.Create(todo, categoryId);
-            return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+            {
+                int categoryId = Convert.ToInt32(Request.Form["CategoryId"]);
+
+                todoService.Create(todo, categoryId);
+                return RedirectToAction("Details", "Category", new { id = categoryId });
+            }
+            
+            //return RedirectToAction(nameof(Index));
+            return View(todo);
         }
 
         //[HttpPost]
