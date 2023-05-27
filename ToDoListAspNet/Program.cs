@@ -39,9 +39,15 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.MapGet("/", (HttpContext context) =>
+{
+    context.Response.Redirect("/Category");
+    return Task.CompletedTask;
+});
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Todos}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
 
