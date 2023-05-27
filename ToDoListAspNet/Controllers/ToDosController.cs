@@ -161,6 +161,17 @@ namespace ToDoListAspNet.Controllers
         public ActionResult StartToDo(int id)
         {
             todoService.StartToDo(id, _context);
+            //int categoryId = Convert.ToInt32(Request.Form["CategoryId"]);
+            //return RedirectToAction(nameof(Index));
+            //return RedirectToAction("Details", "Category", new { id = categoryId });
+
+            var todo = _context.ToDos.Find(id);
+            if (todo != null)
+            {
+                int categoryId = todo.CategoryId;
+                return RedirectToAction("Details", "Category", new { id = categoryId });
+            }
+
             return RedirectToAction(nameof(Index));
         }
 
@@ -169,6 +180,14 @@ namespace ToDoListAspNet.Controllers
         public ActionResult FinishToDo(int id)
         {
             todoService.FinishToDo(id, _context);
+
+            var todo = _context.ToDos.Find(id);
+            if (todo != null)
+            {
+                int categoryId = todo.CategoryId;
+                return RedirectToAction("Details", "Category", new { id = categoryId });
+            }
+
             return RedirectToAction(nameof(Index));
         }
 

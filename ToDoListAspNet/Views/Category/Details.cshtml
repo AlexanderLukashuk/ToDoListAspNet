@@ -27,6 +27,34 @@
                             <h3><a href="/ToDos/Details?id=@todo.Id">@todo.Name</a></h3>
                         </form>
                     </div>
+                    <div class="list-group-item-btn">
+                        <form action="/ToDos/Edit" method="get" class="edit-form">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@todo.Id" />
+                            <button type="submit" class="btn btn-primary">Edit</button>
+                        </form>
+                        <form asp-action="Delete" method="post" class="delete-form">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@todo.Id" />
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                        @if (todo.Status == ToDoListAspNetLibrary.Models.Entities.ToDo.ToDoStatus.NotStarted)
+                        {
+                            <form action="/ToDos/StartToDo" method="post" class="start-form">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@todo.Id" />
+                                <button type="submit" class="btn btn-success">Start</button>
+                            </form>
+                        }
+                        else if (todo.Status == ToDoListAspNetLibrary.Models.Entities.ToDo.ToDoStatus.InProgress)
+                        {
+                            <form action="/ToDos/FinishToDo" method="post" class="finish-form">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@todo.Id" />
+                                <button type="submit" class="btn btn-warning">Finish</button>
+                            </form>
+                        }
+                    </div>
                 </li>
             }
         </ul>
