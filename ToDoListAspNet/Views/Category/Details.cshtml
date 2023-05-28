@@ -110,6 +110,11 @@
                                     <input type="hidden" name="id" value="@todo.Id" />
                                     <button type="submit" class="btn btn-primary">Edit</button>
                                 </form>
+                                <form action="/ToDos/Copy" method="post" class="copy-form">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="CategoryId" value="@ViewBag.CategoryId" />
+                                    <button type="submit" class="btn btn-secondary details-todo-btn">Copy</button>
+                                </form>
                                 <form asp-action="Delete" method="post" class="delete-form">
                                     @Html.AntiForgeryToken()
                                     <input type="hidden" name="id" value="@todo.Id" />

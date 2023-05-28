@@ -207,6 +207,26 @@ namespace ToDoListAspNet.Controllers
             return View(todo);
         }
 
+        //[HttpPost]
+        //public IActionResult Copy(int id)
+        //{
+        //    ToDo originalToDO = todoService.GetToDoById(id);
+
+        //    var categoryId = originalToDO.CategoryId;
+        //    todoService.Create(originalToDO, categoryId);
+
+        //    return RedirectToAction("Details", "Category", new { id = categoryId });
+        //}
+
+        [HttpPost]
+        public IActionResult Copy(int id)
+        {
+            int categoryId = Convert.ToInt32(Request.Form["CategoryId"]);
+            todoService.Copy(id);
+
+            return RedirectToAction("Details", "Category", new { id = categoryId });
+        }
+
         private bool ToDoExists(int id)
         {
             return (_context.ToDos?.Any(e => e.Id == id)).GetValueOrDefault();

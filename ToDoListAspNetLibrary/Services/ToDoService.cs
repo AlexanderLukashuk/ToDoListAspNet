@@ -161,6 +161,165 @@ namespace ToDoListAspNetLibrary.Services
 
             return todos;
         }
+
+        public ToDo GetToDoById(int id)
+        {
+            ToDo todo = new ToDo();
+
+            try
+            {
+                using (connection)
+                {
+                    try
+                    {
+                        connection.Open();
+
+                        string query = "SELECT * FROM ToDos WHERE Id = @id";
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@id", id);
+
+                            using (SqlDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    var name = reader.GetString(reader.GetOrdinal("Name"));
+                                    var desc = reader.GetString(reader.GetOrdinal("Description"));
+                                    var deadline = reader.GetDateTime(reader.GetOrdinal("DeadLine"));
+                                    var status = reader.GetInt32(reader.GetOrdinal("Status"));
+                                    var categoryId = reader.GetInt32(reader.GetOrdinal("CategoryId"));
+
+                                    todo.Name = name;
+                                    todo.Description = desc;
+                                    todo.DeadLine = deadline;
+                                    switch (status)
+                                    {
+                                        case 0:
+                                            {
+                                                todo.Status = ToDo.ToDoStatus.NotStarted;
+                                                break;
+                                            }
+                                        case 1:
+                                            {
+                                                todo.Status = ToDo.ToDoStatus.InProgress;
+                                                break;
+                                            }
+                                        case 2:
+                                            {
+                                                todo.Status = ToDo.ToDoStatus.Completed;
+                                                break;
+                                            }
+                                    }
+                                    todo.CategoryId = categoryId;
+                                }
+                            }
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        Console.WriteLine("ERROR: Can't connect to server" + ex.Message);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("ERROR: Can't connect to server" + ex.Message);
+            }
+
+            return todo;
+        }
+
+        public void Copy(int id)
+        {
+            ToDo todo = new ToDo();
+
+            try
+            {
+                using (connection)
+                {
+                    try
+                    {
+                        connection.Open();
+
+                        string query = "SELECT * FROM ToDos WHERE Id = @id";
+
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@id", id);
+
+                            using (SqlDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    var name = reader.GetString(reader.GetOrdinal("Name"));
+                                    var desc = reader.GetString(reader.GetOrdinal("Description"));
+                                    var deadline = reader.GetDateTime(reader.GetOrdinal("DeadLine"));
+                                    var status = reader.GetInt32(reader.GetOrdinal("Status"));
+                                    var categoryId = reader.GetInt32(reader.GetOrdinal("CategoryId"));
+
+                                    todo.Name = name;
+                                    todo.Description = desc;
+                                    todo.DeadLine = deadline;
+                                    switch (status)
+                                    {
+                                        case 0:
+                                            {
+                                                todo.Status = ToDo.ToDoStatus.NotStarted;
+                                                break;
+                                            }
+                                        case 1:
+                                            {
+                                                todo.Status = ToDo.ToDoStatus.InProgress;
+                                                break;
+                                            }
+                                        case 2:
+                                            {
+                                                todo.Status = ToDo.ToDoStatus.Completed;
+                                                break;
+                                            }
+                                    }
+                                    todo.CategoryId = categoryId;
+                                }
+                            }
+                        }
+
+                        query =
+                            "INSERT INTO ToDos (Name, Description, DeadLine, Status, CategoryId)" +
+                            "VALUES (@name, @descr, CAST(@deadLine AS DateTime), @status, @categoryId);";
+
+                        using (var command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@name", todo.Name);
+                            //command.Parameters.AddWithValue("@descr", todo.Description);
+                            command.Parameters.AddWithValue("@descr", string.IsNullOrEmpty(todo.Description) ? "No description" : todo.Description);
+                            //command.Parameters.AddWithValue("@deadLine", todo.DeadLine);
+                            command.Parameters.AddWithValue("@deadLine", todo.DeadLine.HasValue ? (object)todo.DeadLine : DateTime.MaxValue);
+                            command.Parameters.AddWithValue("@status", ToDo.ToDoStatus.NotStarted);
+                            command.Parameters.AddWithValue("@categoryId", todo.CategoryId);
+                            //command.Parameters.AddWithValue("@deadLine", todo.DeadLine.ToString("yyyy-MM-dd HH:mm:ss"));
+
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        Console.WriteLine("ERROR: Can't connect to server" + ex.Message);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("ERROR: Something went wrong" + ex.Message);
+            }
+        }
     }
 }
 
