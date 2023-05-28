@@ -4,11 +4,11 @@
 
     <div class="button-group">
         <div class="details">
-            <h1>@Model.Name</h1>
+            <h1 class="todo-name category-name-details">@Model.Name</h1>
             <div class="progress">
-                <h4>Progress: @Model.Progress %</h4>
+                <h4 class="progress-text">Progress: @Model.Progress%</h4>
             </div>
-            <div class="details-btn">
+            <div class="details-btn category-details-btn">
                 <form action="/Category/Edit" method="get" class="edit-form">
                     @Html.AntiForgeryToken()
                     <input type="hidden" name="id" value="@Model.Id" />
