@@ -311,6 +311,11 @@ a {
     margin-left: 0%;
 }
 
+.todo-create {
+    margin-left: 25.5%;
+    margin-top: -2%;
+}
+
 /*body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
