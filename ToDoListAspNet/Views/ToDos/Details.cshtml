@@ -1,35 +1,37 @@
 ﻿@model ToDoListAspNetLibrary.Models.Entities.ToDo
 
 <div class="container">
-    <h1>@Model.Name</h1>
+    <h1 class="todo-name">@Model.Name</h1>
 
     <div class="button-group">
-        <form action="/ToDos/Edit" method="get" class="edit-form">
-            @Html.AntiForgeryToken()
-            <input type="hidden" name="id" value="@Model.Id" />
-            <button type="submit" class="btn btn-primary">Edit</button>
-        </form>
-        <form action="/ToDos/Delete" method="post" class="delete-form">
-            @Html.AntiForgeryToken()
-            <input type="hidden" name="id" value="@Model.Id" />
-            <button type="submit" class="btn btn-danger">Delete</button>
-        </form>
-        @if (Model.Status == ToDoListAspNetLibrary.Models.Entities.ToDo.ToDoStatus.NotStarted)
-        {
-            <form action="/ToDos/StartToDo" method="post" class="start-form">
+        <div class="details-todo">
+            <form action="/ToDos/Edit" method="get" class="edit-form">
                 @Html.AntiForgeryToken()
                 <input type="hidden" name="id" value="@Model.Id" />
-                <button type="submit" class="btn btn-success">Start</button>
+                <button type="submit" class="btn btn-primary details-todo-btn">Edit</button>
             </form>
-        }
-        else if (Model.Status == ToDoListAspNetLibrary.Models.Entities.ToDo.ToDoStatus.InProgress)
-        {
-            <form action="/ToDos/FinishToDo" method="post" class="finish-form">
+            <form action="/ToDos/Delete" method="post" class="delete-form">
                 @Html.AntiForgeryToken()
                 <input type="hidden" name="id" value="@Model.Id" />
-                <button type="submit" class="btn btn-warning">Finish</button>
+                <button type="submit" class="btn btn-danger details-todo-btn">Delete</button>
             </form>
-        }
+            @if (Model.Status == ToDoListAspNetLibrary.Models.Entities.ToDo.ToDoStatus.NotStarted)
+            {
+                <form action="/ToDos/StartToDo" method="post" class="start-form">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <button type="submit" class="btn btn-success details-todo-btn">Start</button>
+                </form>
+            }
+            else if (Model.Status == ToDoListAspNetLibrary.Models.Entities.ToDo.ToDoStatus.InProgress)
+            {
+                <form action="/ToDos/FinishToDo" method="post" class="finish-form">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <button type="submit" class="btn btn-warning">Finish</button>
+                </form>
+            }
+        </div>      
     </div>
 
     <div class="deadline">
