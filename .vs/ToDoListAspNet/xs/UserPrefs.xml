@@ -1,11 +1,5 @@
 ﻿<Properties StartupConfiguration="{2FEB6FC2-A5AC-4C98-831A-3A6647261E17}|https">
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.ToDoListAspNet PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="ToDoListAspNet/Views/Category/Details.cshtml">
     <Files>
       <File FileName="ToDoListAspNet/Views/Category/Details.cshtml" Line="115" Column="84" />
@@ -38,4 +32,9 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.ToDoListAspNet PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.ItemProperties.ToDoListAspNet.Tests FirstBuild="True" />
 </Properties>

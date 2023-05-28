@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoListAspNet", "ToDoListA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoListAspNetLibrary", "ToDoListAspNetLibrary\ToDoListAspNetLibrary.csproj", "{995865A0-86C3-465D-AB5B-9E66D6EFB4E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoListAspNet.Tests", "ToDoListAspNet.Tests\ToDoListAspNet.Tests.csproj", "{54D2BCEC-E4EB-4480-8D6D-7034EEE0BAD0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{995865A0-86C3-465D-AB5B-9E66D6EFB4E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{995865A0-86C3-465D-AB5B-9E66D6EFB4E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{995865A0-86C3-465D-AB5B-9E66D6EFB4E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54D2BCEC-E4EB-4480-8D6D-7034EEE0BAD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54D2BCEC-E4EB-4480-8D6D-7034EEE0BAD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54D2BCEC-E4EB-4480-8D6D-7034EEE0BAD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54D2BCEC-E4EB-4480-8D6D-7034EEE0BAD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
