@@ -283,6 +283,10 @@ a {
     margin-left: -3%;
 }
 
+.category-create {
+    margin-left: 0%;
+}
+
 /*body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;

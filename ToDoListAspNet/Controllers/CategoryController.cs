@@ -63,13 +63,16 @@ namespace ToDoListAspNet.Controllers
             var todos = _toDoRepository.ToDos.Where(t => t.CategoryId == category.Id).ToList();
             ViewData["Todos"] = todos;
 
-            var percentagePerToDo = 100 / todos.Count;
-
-            foreach (var t in todos)
+            if (todos.Count > 0)
             {
-                if (t.Status == ToDo.ToDoStatus.Completed)
+                var percentagePerToDo = 100 / todos.Count;
+
+                foreach (var t in todos)
                 {
-                    category.Progress += Convert.ToInt32(percentagePerToDo);
+                    if (t.Status == ToDo.ToDoStatus.Completed)
+                    {
+                        category.Progress += Convert.ToInt32(percentagePerToDo);
+                    }
                 }
             }
 
