@@ -130,6 +130,10 @@ button {
     margin-bottom: 3%;
 }
 
+.create-category {
+    margin-left: 3%;
+}
+
 .create-btn {
     margin-left: 10%;
 }
@@ -147,6 +151,7 @@ button {
     flex-direction: row;
     gap: 5%;
     margin-bottom: 2%;
+    margin-top: 1.5%;
 }
 
 .details-btn {
@@ -206,7 +211,40 @@ button {
     margin-top: 20px;
 }
 
+.description {
+    background-color: #E6E6FA;
+    border-radius: 0.25rem;
+    margin-left: 1.5%;
+    margin-top: 1.5%;
+}
 
+    .description h4 {
+        padding-top: 1%;
+        padding-left: 3%;
+    }
+
+    .description p {
+        padding-left: 3%;
+        padding-bottom: 2%;
+    }
+
+.return-btn-todo {
+    margin-left: 1.5%;
+}
+
+.deadline {
+    margin-left: 1.5%;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.category-name {
+    text-align: left;
+    width: 65%;
+}
 
 /*body {
     margin: 0;
