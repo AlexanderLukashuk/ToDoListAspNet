@@ -287,6 +287,17 @@ a {
     margin-left: 0%;
 }
 
+.name-inputbox {
+    font-size: 160%;
+}
+
+.form-control {
+/*    height: 150%;*/
+    line-height: 200%;
+    font-size: 150%;
+    margin-top: 1%;
+}
+
 /*body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
