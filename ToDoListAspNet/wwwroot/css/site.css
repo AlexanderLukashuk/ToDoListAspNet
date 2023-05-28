@@ -141,7 +141,7 @@ button {
 
 .details {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 8%;
     margin-left: 3%;
     margin-bottom: 2%;
@@ -260,6 +260,10 @@ a {
 .check {
     content: "\2705";
     font-size: 150%;
+}
+
+.progress {
+    height: 120%;
 }
 
 /*body {

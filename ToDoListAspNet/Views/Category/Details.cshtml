@@ -5,6 +5,9 @@
     <div class="button-group">
         <div class="details">
             <h1>@Model.Name</h1>
+            <div class="progress">
+                <h4>Progress: @Model.Progress %</h4>
+            </div>
             <div class="details-btn">
                 <form action="/Category/Edit" method="get" class="edit-form">
                     @Html.AntiForgeryToken()
