@@ -2,6 +2,18 @@
 
 <div class="container">
     <h1 class="todo-name">@Model.Name</h1>
+    @*<h3 class="todo-name">@Model.Status</h3>*@
+    @if (Model.Status == ToDoListAspNetLibrary.Models.Entities.ToDo.ToDoStatus.Completed)
+    {
+        <div class="completed-todo">
+            <h3 class="todo-name completed">@Model.Status</h3>
+            <span class="check">&#9989;</span>
+        </div>
+    }
+    else
+    {
+        <h3 class="todo-name">@Model.Status</h3>
+    }
 
     <div class="button-group">
         <div class="details-todo">
@@ -31,7 +43,7 @@
                     <button type="submit" class="btn btn-warning">Finish</button>
                 </form>
             }
-        </div>      
+        </div>
     </div>
 
     <div class="deadline">

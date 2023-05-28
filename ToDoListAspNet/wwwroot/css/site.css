@@ -136,6 +136,7 @@ button {
 
 .create-btn {
     margin-left: 10%;
+    margin-bottom: 0%;
 }
 
 .details {
@@ -244,6 +245,21 @@ a {
 .category-name {
     text-align: left;
     width: 65%;
+}
+
+.completed {
+    color: green;
+    width: 15%;
+}
+
+.completed-todo {
+    display: flex;
+    flex-direction: row;
+}
+
+.check {
+    content: "\2705";
+    font-size: 150%;
 }
 
 /*body {
