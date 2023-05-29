@@ -110,7 +110,7 @@
                                     <input type="hidden" name="id" value="@todo.Id" />
                                     <button type="submit" class="btn btn-primary">Edit</button>
                                 </form>
-                                <form asp-action="Delete" method="post" class="delete-form">
+                                <form action="/ToDos/Delete" method="post" class="delete-form">
                                     @Html.AntiForgeryToken()
                                     <input type="hidden" name="id" value="@todo.Id" />
                                     <button type="submit" class="btn btn-danger">Delete</button>
