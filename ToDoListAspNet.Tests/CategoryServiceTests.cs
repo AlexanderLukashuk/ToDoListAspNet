@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
+using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 using Moq;
 using ToDoListAspNetLibrary.Models.Data;
 using ToDoListAspNetLibrary.Models.Entities;
@@ -14,6 +16,52 @@ namespace ToDoListAspNet.Tests
         private CategoryDBContext categoryContext;
 
         private ToDoListDBContext todoContext;
+
+        private DbContextOptions<CategoryDBContext> GetInMemoryDatabaseOptions()
+        {
+            return new DbContextOptionsBuilder<CategoryDBContext>()
+                .UseSqlite(CreateInMemoryDatabase())
+                .Options;
+        }
+
+        private SqliteConnection CreateInMemoryDatabase()
+        {
+            var connection = new SqliteConnection("Data Source=:memory:");
+            connection.Open();
+
+            using (var context = new CategoryDBContext(
+                new DbContextOptionsBuilder<CategoryDBContext>()
+                    .UseSqlite(connection)
+                    .Options))
+            {
+                context.Database.EnsureCreated();
+            }
+
+            return connection;
+        }
+
+        private DbContextOptions<ToDoListDBContext> GetInMemoryDatabaseOptionsToDo()
+        {
+            return new DbContextOptionsBuilder<ToDoListDBContext>()
+                .UseSqlite(CreateInMemoryDatabaseToDo())
+                .Options;
+        }
+
+        private SqliteConnection CreateInMemoryDatabaseToDo()
+        {
+            var connection = new SqliteConnection("Data Source=:memory:");
+            connection.Open();
+
+            using (var context = new ToDoListDBContext(
+                new DbContextOptionsBuilder<ToDoListDBContext>()
+                    .UseSqlite(connection)
+                    .Options))
+            {
+                context.Database.EnsureCreated();
+            }
+
+            return connection;
+        }
 
         [Fact]
         public void Create_ShouldInsertCategoryIntoDatabase()
@@ -87,6 +135,74 @@ namespace ToDoListAspNet.Tests
         //        Assert.Empty(deletedTodos);
         //    }
         //}
+
+        [Fact]
+        public void Delete_ShouldDeleteCategoryAndAssociatedToDos()
+        {
+            // Arrange
+            int categoryId = 6;
+            int todoId1 = 1;
+            int todoId2 = 2;
+
+            var category = new Category
+            {
+                Id = categoryId
+            };
+
+            var todo1 = new ToDo
+            {
+                Id = todoId1,
+                CategoryId = categoryId
+            };
+
+            var todo2 = new ToDo
+            {
+                Id = todoId2,
+                CategoryId = categoryId
+            };
+
+            var options = GetInMemoryDatabaseOptions();
+            using (var context = new CategoryDBContext(options))
+            {
+                // Add test data to the category database
+                context.Categories.Add(category);
+                context.SaveChanges();
+            }
+
+            var todoOptions = GetInMemoryDatabaseOptionsToDo();
+            using (var todoContext = new ToDoListDBContext(todoOptions))
+            {
+                //using (var categoryContext = new CategoryDBContext(options))
+                //{
+                //    var todoService = new ToDoService(connectionString);
+                //    var categoryService = new CategoryService(connectionString);
+
+                //    // Add test data to the ToDo database
+                //    todoContext.ToDos.Add(todo1);
+                //    todoContext.ToDos.Add(todo2);
+                //    todoContext.SaveChanges();
+                //}
+
+                todoContext.ToDos.Add(todo1);
+                todoContext.ToDos.Add(todo2);
+                todoContext.SaveChanges();
+
+                using (var categoryContext = new CategoryDBContext(options))
+                {
+                    var todoService = new ToDoService(connectionString);
+                    var categoryService = new CategoryService(connectionString);
+
+                    // Act
+                    categoryService.Delete(categoryId, categoryContext, todoService, todoContext);
+
+                    // Assert
+                    Assert.Null(categoryContext.Categories.Find(categoryId));
+
+                    Assert.Null(todoContext.ToDos.Find(todoId1));
+                    Assert.Null(todoContext.ToDos.Find(todoId2));
+                }
+            }
+        }
 
         [Fact]
         public void Update_ShouldUpdateCategoryName()

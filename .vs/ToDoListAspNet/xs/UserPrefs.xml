@@ -1,8 +1,10 @@
 ﻿<Properties StartupConfiguration="{2FEB6FC2-A5AC-4C98-831A-3A6647261E17}|https">
+  <MonoDevelop.Ide.ItemProperties.ToDoListAspNet PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.ToDoListAspNet PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workbench ActiveDocument="ToDoListAspNet.Tests/ToDoServiceTests.cs">
     <Files>
@@ -10,15 +12,15 @@
       <File FileName="ToDoListAspNet/Views/Category/Index.cshtml" />
       <File FileName="ToDoListAspNet/Views/Category/Create.cshtml" />
       <File FileName="ToDoListAspNet/Views/Category/Edit.cshtml" />
-      <File FileName="ToDoListAspNet/Controllers/ToDosController.cs" Line="34" Column="85" />
+      <File FileName="ToDoListAspNet/Controllers/ToDosController.cs" />
       <File FileName="ToDoListAspNet/Controllers/CategoryController.cs" />
       <File FileName="ToDoListAspNet/Views/ToDos/Index.cshtml" />
       <File FileName="ToDoListAspNetLibrary/Services/CategoryService.cs" />
-      <File FileName="ToDoListAspNetLibrary/Services/ToDoService.cs" Line="109" Column="10" />
+      <File FileName="ToDoListAspNetLibrary/Services/ToDoService.cs" Line="101" Column="9" />
       <File FileName="ToDoListAspNet/Views/ToDos/CreateToDo.cshtml" />
       <File FileName="ToDoListAspNet/Views/ToDos/Edit.cshtml" />
       <File FileName="ToDoListAspNet.Tests/CategoryServiceTests.cs" />
-      <File FileName="ToDoListAspNet.Tests/ToDoServiceTests.cs" Line="120" Column="52" />
+      <File FileName="ToDoListAspNet.Tests/ToDoServiceTests.cs" Line="201" Column="62" />
       <File FileName="ToDoListAspNet/Views/ToDos/Details.cshtml" />
     </Files>
     <Pads>
@@ -63,6 +65,4 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
 </Properties>
