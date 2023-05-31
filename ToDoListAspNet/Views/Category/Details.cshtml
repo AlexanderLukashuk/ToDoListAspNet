@@ -22,56 +22,6 @@
             </div>
         </div>
 
-        @*@foreach (var todo in ViewData["Todos"] as List<ToDoListAspNetLibrary.Models.Entities.ToDo>)
-        {
-            <ul>
-                <li class="list-group-item todo-item">
-                    <div class="todo-name">
-                        <form action="/ToDos/Details" method="get" class="details-form">
-                            @Html.AntiForgeryToken()
-                            <input type="hidden" name="id" value="@todo.Id" />
-
-                            <h3><a href="/ToDos/Details?id=@todo.Id">@todo.Name</a></h3>
-                        </form>
-                    </div>
-                    <div class="list-group-item-btn">
-                        @if (todo.Status == ToDoListAspNetLibrary.Models.Entities.ToDo.ToDoStatus.NotStarted)
-                        {
-                            <form action="/ToDos/StartToDo" method="post" class="start-form">
-                                @Html.AntiForgeryToken()
-                                <input type="hidden" name="id" value="@todo.Id" />
-                                <button type="submit" class="btn btn-success">Start</button>
-                            </form>
-                        }
-                        else if (todo.Status == ToDoListAspNetLibrary.Models.Entities.ToDo.ToDoStatus.InProgress)
-                        {
-                            <form id="finish" action="/ToDos/FinishToDo" method="post" class="finish-form">
-                                @Html.AntiForgeryToken()
-                                <input type="hidden" name="id" value="@todo.Id" />
-                                <button type="submit" class="btn btn-warning">Finish</button>
-                            </form>
-                        }
-                        else
-                        {
-                            <form class="start-form">
-                                <button id="invisible" type="submit" class="btn btn-warning">Start</button>
-                            </form>
-                        }
-                        <form action="/ToDos/Edit" method="get" class="edit-form">
-                            @Html.AntiForgeryToken()
-                            <input type="hidden" name="id" value="@todo.Id" />
-                            <button type="submit" class="btn btn-primary">Edit</button>
-                        </form>
-                        <form asp-action="Delete" method="post" class="delete-form">
-                            @Html.AntiForgeryToken()
-                            <input type="hidden" name="id" value="@todo.Id" />
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </div>
-                </li>
-            </ul>
-        }*@
-
         <div class="todo-section">
             <h4>Not Started or In Progress:</h4>
             <ul>
@@ -158,15 +108,6 @@
             </ul>
         </div>
     </div>
-
-    @*<form action="/ToDos/Create" method="get">
-            <input type="hidden" name="categoryId" value="@Model.Id" />
-            <button type="submit" class="btn btn-success">Create New ToDo</button>
-        </form>*@
-    @*<a href="/ToDos/Create?categoryId=@Model.Id"></a>*@
-    @*<input type="hidden" name="categoryId" value="@Model.Id" />
-        <button type="submit" class="btn btn-success">Create new ToDo</button>*@
-    @*</a>*@
 
     <a href="/ToDos/CreateToDo?categoryId=@Model.Id" class="btn btn-success create-btn return-btn details-category">Create New ToDo</a>
 

@@ -91,7 +91,6 @@ namespace ToDoListAspNet.Controllers
             if (ModelState.IsValid)
             {
                 categoryService.Create(category);
-                //return RedirectToAction("Index", "Todos"); // Redirect to the main page
                 return RedirectToAction(nameof(Index));
             }
 

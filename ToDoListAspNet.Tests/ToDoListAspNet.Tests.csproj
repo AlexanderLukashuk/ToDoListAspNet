@@ -26,5 +26,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ToDoListAspNetLibrary\ToDoListAspNetLibrary.csproj" />
+    <ProjectReference Include="..\ToDoListAspNet\ToDoListAspNet.csproj" />
   </ItemGroup>
 </Project>

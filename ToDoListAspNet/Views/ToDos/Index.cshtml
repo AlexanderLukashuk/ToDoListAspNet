@@ -3,78 +3,6 @@
 }
 
 @model IQueryable<ToDoListAspNetLibrary.Models.Entities.ToDo>
-@*<div class="text-center">
-        <h1 class="display-4">Welcome</h1>
-        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    </div>*@
-@*<form asp-action="Index">
-        @foreach (var p in Model)
-        {
-            <div>
-                <h3>@p.Name</h3>
-                @p.Description
-                <h4>@p.DeadLine</h4>
-                <h4>@p.ToDoStatus</h4>
-            </div>
-        }
-    </form>*@
-
-@*<section class="todo">
-        <header>
-            <h1 class="todo__title todo__title--main">Slidone</h1>
-            <h2 class="todo__date"></h2>
-            <button type="button" class="todo__ad" data-action="add">+</button>
-        </header>
-        <ul class="todo__list"></ul>
-    </section>
-    <form asp-action="Index">
-        @foreach (var p in Model)
-        {
-            <div>
-                <h3>@p.Name</h3>
-                @p.Description
-                <h4>@p.DeadLine</h4>
-                <h4>@p.ToDoStatus</h4>
-            </div>
-        }
-    </form>*@
-
-
-
-<!--<div class="container">
-    <h1>ToDo List</h1>
-
-    <div class="search-box">
-        <input type="text" placeholder="Search">
-    </div>
-
-    <ul class="todo-list">
-        <li class="todo-item">
-            <input type="text" value="ToDo 1">
-            <button>Edit</button>
-            <button>Delete</button>
-        </li>
-        <li class="todo-item">
-            <input type="text" value="ToDo 2">
-            <button>Edit</button>
-            <button>Delete</button>
-        </li>-->
-        <!-- Add more todo items here -->
-    <!--</ul>
-    <form asp-action="Index">
-        @foreach (var p in Model)
-        {
-            <div>
-                <h3>@p.Name</h3>
-                @p.Description
-                <h4>@p.DeadLine</h4>
-                <h4>@p.Status</h4>
-            </div>
-        }
-    </form>
-
-    <button class="create-todo-btn">Create a new ToDo</button>
-</div>-->
 
 <div class="container">
     <h1>ToDo List</h1>
@@ -82,7 +10,6 @@
     <div class="search-box">
         <input type="text" class="form-control" placeholder="Search">
     </div>
-    @*<form asp-action="Index">*@
         @foreach (var todo in Model)
         {
                 <ul>
@@ -94,7 +21,6 @@
                                 <h3>@Html.ActionLink(todo.Name, "Details", new { id = todo.Id })</h3>
                             </form>
                         </div>
-                        @*<button class="btn btn-primary">Edit</button>*@
                         <div class="list-group-item-btn">
                             <form action="/ToDos/Edit" method="get" class="edit-form">
                                 @Html.AntiForgeryToken()
@@ -126,10 +52,8 @@
                     </li>
                 </ul>
         }
-    @*</form>*@
 
     <form action="/ToDos/CreateToDo" method="get">
-
         <button class="btn btn-success create-todo-btn">Create a new ToDo</button>
     </form>
 </div>

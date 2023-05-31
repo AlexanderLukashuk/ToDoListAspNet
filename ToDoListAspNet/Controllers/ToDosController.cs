@@ -43,12 +43,6 @@ namespace ToDoListAspNet.Controllers
         [Route("/ToDos")]
         public IActionResult Index() => View(_repository.ToDos);
 
-        //[Route("/createToDo")]
-        //public IActionResult CreateToDo()
-        //{
-        //    return View();
-        //}
-
         [HttpGet]
         public IActionResult CreateToDo(int categoryId)
         {
@@ -66,41 +60,9 @@ namespace ToDoListAspNet.Controllers
             return View(todo);
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> CreateToDo(ToDo todo)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _context.ToDos.Add(todo);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    return View(todo);
-        //}
-
         [HttpPost]
         public ActionResult CreateToDo(ToDo todo)
         {
-            //using (SqlConnection connection = new SqlConnection(connectionString))
-            //{
-            //    connection.Open();
-            //    using (var command = connection.CreateCommand())
-            //    {
-            //        //string deadline = todo.DeadLine.ToString("yyyy-mm-dd hh:mm");
-            //        command.CommandText = $"INSERT INTO ToDos (Name, Description, DeadLine, ToDoStatus) VALUES ('{todo.Name}', '{todo.Description}', '{todo.DeadLine:yyyy-mm-dd hh:mm}', '{todo.ToDoStatus}')";
-            //        try
-            //        {
-            //            command.ExecuteNonQuery();
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            Console.WriteLine(ex.Message);
-            //        }
-            //        connection.Close();
-            //    }
-            //}
-
             if (ModelState.IsValid)
             {
                 int categoryId = Convert.ToInt32(Request.Form["CategoryId"]);
@@ -108,21 +70,9 @@ namespace ToDoListAspNet.Controllers
                 todoService.Create(todo, categoryId);
                 return RedirectToAction("Details", "Category", new { id = categoryId });
             }
-            
-            //return RedirectToAction(nameof(Index));
+
             return View(todo);
         }
-
-        //[HttpPost]
-        //public async Task<IActionResult> CreateToDo(ToDo todo)
-        //{
-        //    if (!ModelState.IsValid)
-        //        return View(todo);
-
-        //    _context.ToDos.Add(todo);
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -161,9 +111,6 @@ namespace ToDoListAspNet.Controllers
         public ActionResult StartToDo(int id)
         {
             todoService.StartToDo(id, _context);
-            //int categoryId = Convert.ToInt32(Request.Form["CategoryId"]);
-            //return RedirectToAction(nameof(Index));
-            //return RedirectToAction("Details", "Category", new { id = categoryId });
 
             var todo = _context.ToDos.Find(id);
             if (todo != null)
@@ -206,17 +153,6 @@ namespace ToDoListAspNet.Controllers
 
             return View(todo);
         }
-
-        //[HttpPost]
-        //public IActionResult Copy(int id)
-        //{
-        //    ToDo originalToDO = todoService.GetToDoById(id);
-
-        //    var categoryId = originalToDO.CategoryId;
-        //    todoService.Create(originalToDO, categoryId);
-
-        //    return RedirectToAction("Details", "Category", new { id = categoryId });
-        //}
 
         [HttpPost]
         public IActionResult Copy(int id)

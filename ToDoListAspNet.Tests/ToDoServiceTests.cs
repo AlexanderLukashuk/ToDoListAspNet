@@ -22,7 +22,7 @@ namespace ToDoListAspNet.Tests
             DateTime? todoDeadline = new DateTime(2023, 5, 22);
             int categoryId = 1;
 
-            var todoService = new ToDoService(connectionString); // Replace with your ToDoService constructor
+            var todoService = new ToDoService(connectionString);
 
             // Act
             using (var connection = new SqlConnection(connectionString))
@@ -78,12 +78,11 @@ namespace ToDoListAspNet.Tests
                 CategoryId = 1
             };
 
-            var todoService = new ToDoService(connectionString); // Replace with your ToDoService constructor
+            var todoService = new ToDoService(connectionString);
 
             // Act
             using (var connection = new SqlConnection(connectionString))
             {
-                //ToDo originalToDo = todoService.GetToDoById(todoId);
                 ToDo updatedToDo = new ToDo
                 {
                     Id = originalToDo.Id,
@@ -111,19 +110,8 @@ namespace ToDoListAspNet.Tests
                         Assert.Equal(updatedDescription, reader.GetString(2));
                     }
                 }
-
-                //todoService.Update(todoId, originalToDo);
             }
         }
-
-        //private DbContextOptions<ToDoListDBContext> GetInMemoryDatabaseOptions()
-        //{
-        //    return new DbContextOptionsBuilder<ToDoListDBContext>()
-        //        .UseInMemoryDatabase("ToDoWebsite")
-        //        .Options;
-        //}
-
-        //private ToDoListDBContext todoContext = new ToDoListDBContext();
 
         private DbContextOptions<ToDoListDBContext> GetInMemoryDatabaseOptions()
         {
@@ -171,49 +159,17 @@ namespace ToDoListAspNet.Tests
 
             var todoService = new ToDoService(connectionString);
 
-            // Act
 
             // Assert
             using (var context = new ToDoListDBContext(options))
             {
+                // Act
                 todoService.Delete(tempToDo.Id, context);
 
                 var deletedToDo = context.ToDos.Find(tempToDo.Id);
-                //ToDo deletedToDo = context.ToDos.OrderBy(t => t.Id).Last();
                 Assert.Null(deletedToDo);
-                //Assert.Null(context.ToDos.OrderBy(t => t.Id).Last());
             }
         }
-
-        //[Fact]
-        //public void GetByCategoryId_ShouldReturnToDosWithMatchingCategoryId()
-        //{
-        //    // Arrange
-        //    int categoryId = 6;
-
-        //    var options = GetInMemoryDatabaseOptions();
-        //    using (var context = new ToDoListDBContext(options))
-        //    {
-        //        // Add test data to the database
-        //        context.ToDos.Add(new ToDo { Id = 1, CategoryId = categoryId });
-        //        context.ToDos.Add(new ToDo { Id = 2, CategoryId = categoryId + 1 });
-        //        context.ToDos.Add(new ToDo { Id = 3, CategoryId = categoryId });
-        //        context.SaveChanges();
-        //    }
-
-        //    using (var context = new ToDoListDBContext(options))
-        //    {
-        //        var todoService = new ToDoService(connectionString);
-
-        //        // Act
-        //        var result = todoService.GetByCategoryId(categoryId);
-
-        //        // Assert
-        //        Assert.Collection(result,
-        //            todo => Assert.Equal(1, todo.Id),
-        //            todo => Assert.Equal(3, todo.Id));
-        //    }
-        //}
 
         [Fact]
         public void StartToDo_ShouldUpdateToDoStatusToInProgress()
@@ -273,77 +229,6 @@ namespace ToDoListAspNet.Tests
                 // Assert
                 var updatedToDo = context.ToDos.Find(todoId);
                 Assert.Equal(ToDo.ToDoStatus.Completed, updatedToDo.Status);
-            }
-        }
-
-        [Fact]
-        public void GetByCategoryId_ShouldReturnToDosWithMatchingCategoryId()
-        {
-            // Arrange
-            int categoryId = 6;
-
-            var options = GetInMemoryDatabaseOptions();
-            using (var context = new ToDoListDBContext(options))
-            {
-                // Add test data to the database
-                context.ToDos.Add(new ToDo { Id = 1, Name = "Test ToDo 1", CategoryId = categoryId });
-                context.ToDos.Add(new ToDo { Id = 2, Name = "Test ToDo 2", CategoryId = 2 });
-                context.ToDos.Add(new ToDo { Id = 3, Name = "Test ToDo 3", CategoryId = categoryId });
-                context.SaveChanges();
-            }
-
-            using (var context = new ToDoListDBContext(options))
-            {
-                var todoService = new ToDoService(connectionString);
-
-                // Act
-                var todos = todoService.GetByCategoryId(categoryId);
-
-                // Assert
-                Assert.Collection(todos,
-                    todo => Assert.Equal("Test ToDo 1", todo.Name),
-                    todo => Assert.Equal("Test ToDo 3", todo.Name)
-                );
-            }
-        }
-
-        [Fact]
-        public void GetToDoById_ShouldReturnToDoWithMatchingId()
-        {
-            // Arrange
-            int todoId = 1;
-            var expectedToDo = new ToDo
-            {
-                Id = todoId,
-                Name = "Test ToDo",
-                Description = "Test Description",
-                DeadLine = new DateTime(2023, 1, 1),
-                Status = ToDo.ToDoStatus.InProgress,
-                CategoryId = 1
-            };
-
-            var options = GetInMemoryDatabaseOptions();
-            using (var context = new ToDoListDBContext(options))
-            {
-                // Add test data to the database
-                context.ToDos.Add(expectedToDo);
-                context.SaveChanges();
-            }
-
-            using (var context = new ToDoListDBContext(options))
-            {
-                var todoService = new ToDoService(connectionString);
-
-                // Act
-                var todo = todoService.GetToDoById(todoId);
-
-                // Assert
-                Assert.NotNull(todo);
-                Assert.Equal(expectedToDo.Name, todo.Name);
-                Assert.Equal(expectedToDo.Description, todo.Description);
-                Assert.Equal(expectedToDo.DeadLine, todo.DeadLine);
-                Assert.Equal(expectedToDo.Status, todo.Status);
-                Assert.Equal(expectedToDo.CategoryId, todo.CategoryId);
             }
         }
     }

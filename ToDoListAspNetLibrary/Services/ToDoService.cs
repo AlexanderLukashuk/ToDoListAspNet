@@ -38,13 +38,10 @@ namespace ToDoListAspNetLibrary.Services
                         using (var command = new SqlCommand(query, connection))
                         {
                             command.Parameters.AddWithValue("@name", todo.Name);
-                            //command.Parameters.AddWithValue("@descr", todo.Description);
                             command.Parameters.AddWithValue("@descr", string.IsNullOrEmpty(todo.Description) ? "No description" : todo.Description);
-                            //command.Parameters.AddWithValue("@deadLine", todo.DeadLine);
                             command.Parameters.AddWithValue("@deadLine", todo.DeadLine.HasValue ? (object)todo.DeadLine : DateTime.MaxValue);
                             command.Parameters.AddWithValue("@status", ToDo.ToDoStatus.NotStarted);
                             command.Parameters.AddWithValue("@categoryId", categoryId);
-                            //command.Parameters.AddWithValue("@deadLine", todo.DeadLine.ToString("yyyy-MM-dd HH:mm:ss"));
 
                             command.ExecuteNonQuery();
                         }
@@ -294,13 +291,10 @@ namespace ToDoListAspNetLibrary.Services
                         using (var command = new SqlCommand(query, connection))
                         {
                             command.Parameters.AddWithValue("@name", todo.Name);
-                            //command.Parameters.AddWithValue("@descr", todo.Description);
                             command.Parameters.AddWithValue("@descr", string.IsNullOrEmpty(todo.Description) ? "No description" : todo.Description);
-                            //command.Parameters.AddWithValue("@deadLine", todo.DeadLine);
                             command.Parameters.AddWithValue("@deadLine", todo.DeadLine.HasValue ? (object)todo.DeadLine : DateTime.MaxValue);
                             command.Parameters.AddWithValue("@status", ToDo.ToDoStatus.NotStarted);
                             command.Parameters.AddWithValue("@categoryId", todo.CategoryId);
-                            //command.Parameters.AddWithValue("@deadLine", todo.DeadLine.ToString("yyyy-MM-dd HH:mm:ss"));
 
                             command.ExecuteNonQuery();
                         }
