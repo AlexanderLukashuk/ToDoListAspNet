@@ -25,9 +25,12 @@
             <span asp-validation-for="DeadLine" class="text-danger"></span>
         </div>
     </div>
+
+    @*<input type="hidden" name="CategoryId" value="@ViewBag.CategoryId" />*@
     <div class="row justify-content-center">
         <div class="col-xl-6 col-lg-8 col-md-8 col-sm-10 mt-3 mb-5">
             <input type="submit" id="form-button" class="btn btn-success create-btn return-btn category-create" value="Add Todo" />
+            @*<a href="/Details/Category?categoryId=@Model.Id" class="btn btn-success create-btn return-btn details-category">Save Changes</a>*@
         </div>
     </div>
 </form>

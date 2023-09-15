@@ -87,6 +87,8 @@ namespace ToDoListAspNetLibrary.Services
                 catch (SqlException ex)
                 {
                     Console.WriteLine("ERROR: " + ex.Message);
+
+                    // scram.org кокосо троелсон рихтер албахари
                 }
                 finally
                 {

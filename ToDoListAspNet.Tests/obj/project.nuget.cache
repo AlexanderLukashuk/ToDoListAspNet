@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jKWslgo8DSyXzmvz5Os2sHwHKp8CuQ/swljYPdJFnfw90Ovy6S+w0AeJcaoUd1vKU35Ld1Ld99lK6husCghd2w==",
+  "dgSpecHash": "NDIIogwlGhBBSOvk4J+nmlt7SCMayZjaoYfAFTPwAzsk2zGrEOyfGXHHvVY3yG4P/NZc85D0NaWad9DtV2O1sg==",
   "success": true,
   "projectFilePath": "/Users/aleksandrlukasuk/Projects/ToDoListAspNet/ToDoListAspNet.Tests/ToDoListAspNet.Tests.csproj",
   "expectedPackageFiles": [

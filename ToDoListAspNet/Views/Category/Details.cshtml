@@ -55,13 +55,14 @@
                                         <button type="submit" class="btn btn-warning">Finish</button>
                                     </form>
                                 }
-                                <form action="/ToDos/Edit" method="get" class="edit-form">
-                                    @Html.AntiForgeryToken()
-                                    <input type="hidden" name="id" value="@todo.Id" />
-                                    <button type="submit" class="btn btn-primary">Edit</button>
-                                </form>
+                            <form action="/ToDos/Edit" method="get" class="edit-form">
+                                @*@Html.AntiForgeryToken()*@
+                                <input type="hidden" name="id" value="@todo.Id" />
+                                <button type="submit" class="btn btn-primary">Edit</button>
+                                @*<a href="/ToDos/Edit?categoryId=@Model.Id" class="btn btn-primary">Edit</a>*@
+                            </form>
                                 <form action="/ToDos/Delete" method="post" class="delete-form">
-                                    @Html.AntiForgeryToken()
+                                    @*@Html.AntiForgeryToken()*@
                                     <input type="hidden" name="id" value="@todo.Id" />
                                     <button type="submit" class="btn btn-danger">Delete</button>
                                 </form>
@@ -95,6 +96,7 @@
                                     @Html.AntiForgeryToken()
                                     <input type="hidden" name="id" value="@todo.Id" />
                                     <button type="submit" class="btn btn-primary">Edit</button>
+                                    @*<a href="/ToDos/Edit?categoryId=@Model.Id" class="btn btn-primary">Edit</a>*@
                                 </form>
                                 <form asp-action="Delete" method="post" class="delete-form">
                                     @Html.AntiForgeryToken()

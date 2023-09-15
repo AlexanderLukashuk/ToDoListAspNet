@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -25,19 +26,22 @@ namespace ToDoListAspNet.Controllers
 
         private CategoryDBContext _categoryContex;
 
+        private ToDoListDBContext _todoContext;
+
         private ToDoListDBContext _context;
 
         private string connectionString;
 
         private ToDoService todoService;
 
-        public ToDosController(IToDoRepository repository, ToDoListDBContext context, IConfiguration configuration, CategoryDBContext categoryContext)
+        public ToDosController(IToDoRepository repository, ToDoListDBContext context, IConfiguration configuration, CategoryDBContext categoryContext, ToDoListDBContext todoContext)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _context = context;
             connectionString = configuration.GetConnectionString("ToDoWebsite") ?? throw new InvalidOperationException("Connection string \"ToDoWebsite\" not found.");
             todoService = new ToDoService(connectionString);
             _categoryContex = categoryContext;
+            _todoContext = todoContext;
         }
 
         [Route("/ToDos")]
@@ -67,7 +71,13 @@ namespace ToDoListAspNet.Controllers
             {
                 int categoryId = Convert.ToInt32(Request.Form["CategoryId"]);
 
-                todoService.Create(todo, categoryId);
+                //todoService.Create(todo, categoryId);
+                if (todo != null)
+                {
+                    _context.ToDos.Add(todo);
+                    _context.SaveChanges();
+                }
+
                 return RedirectToAction("Details", "Category", new { id = categoryId });
             }
 
@@ -95,13 +105,24 @@ namespace ToDoListAspNet.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Edit(int id, ToDo todo)
         {
             if (ModelState.IsValid)
             {
+                //int categoryId = Convert.ToInt32(Request.Form["CategoryId"]);
+                //var category = _categoryContex.Categories.FirstOrDefault(c => c. == categoryId);
+                var _todo = _todoContext.ToDos.FirstOrDefault(t => t.Id == id);
+
+                if (_todo == null)
+                {
+                    return RedirectToAction("Category");
+                }
+
+                int categoryId = _todo.CategoryId;
+
                 todoService.Update(id, todo);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "Category", new { id = categoryId });
             }
             return View(todo);
         }
